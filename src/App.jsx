@@ -7,7 +7,7 @@ import Dashboard from "./components/Dashboard";
 import OnboardingGuide from "./components/OnboardingGuide";
 import ErrorScreen from "./components/ErrorScreen";
 import { parseGitHubUrl, analyzeRepo, GHError } from "./services/githubApi";
-import { buildAnalysis } from "./services/aiInsights";
+import { buildAnalysis } from "./services/repoInsights";
 
 // App state machine: "idle" | "loading" | "results" | "error"
 export default function App() {
@@ -42,7 +42,7 @@ export default function App() {
       stepTimers.forEach(clearTimeout);
       setLoadingStep(6);
 
-      // Short pause so final "AI insights" step shows
+      // Short pause so final "diagnostic assessments" step shows
       await new Promise(r => setTimeout(r, 600));
       setLoadingStep(7);
       await new Promise(r => setTimeout(r, 400));

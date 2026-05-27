@@ -4,7 +4,7 @@ import RepoHeader from "./RepoHeader";
 import ScorePanel from "./ScorePanel";
 import TechStack from "./TechStack";
 import ArchitectureOverview from "./ArchitectureOverview";
-import AISuggestions from "./AISuggestions";
+import SmartSuggestions from "./SmartSuggestions";
 import SecurityPanel from "./SecurityPanel";
 import CommitActivity from "./CommitActivity";
 
@@ -95,7 +95,7 @@ export default function Dashboard({ data, onReset }) {
 
         <TechStack techStack={data.techStack} />
         <ArchitectureOverview architecture={data.architecture} />
-        <AISuggestions suggestions={data.aiSuggestions} />
+        <SmartSuggestions suggestions={data.smartSuggestions} />
       </div>
     </motion.div>
   );

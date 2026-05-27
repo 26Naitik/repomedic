@@ -2,41 +2,68 @@
 
 # 🩺 RepoMedic
 
-### Smart GitHub Repository Analysis & Health Dashboard
+### Repository Insights & Client-Side Health Diagnostics Dashboard
 
-[![MIT License](https://img.shields.io/github/license/26Naitik/repomedic-ai?color=7c6fff&style=flat-square)](LICENSE)
-[![GitHub Stars](https://img.shields.io/github/stars/26Naitik/repomedic-ai?color=22d3ee&style=flat-square)](https://github.com/26Naitik/repomedic-ai/stargazers)
-[![GitHub Contributors](https://img.shields.io/github/contributors/26Naitik/repomedic-ai?color=00ffa3&style=flat-square)](https://github.com/26Naitik/repomedic-ai/graphs/contributors)
-[![Vercel Deployment](https://img.shields.io/badge/deployed-on_vercel-black?logo=vercel&style=flat-square)](https://repomedic-ai.vercel.app)
+[![MIT License](https://img.shields.io/github/license/26Naitik/repomedic?color=7c6fff&style=flat-square)](LICENSE)
+[![GitHub Stars](https://img.shields.io/github/stars/26Naitik/repomedic?color=22d3ee&style=flat-square)](https://github.com/26Naitik/repomedic/stargazers)
+[![GitHub Contributors](https://img.shields.io/github/contributors/26Naitik/repomedic?color=00ffa3&style=flat-square)](https://github.com/26Naitik/repomedic/graphs/contributors)
+[![Vercel Deployment](https://img.shields.io/badge/deployed-on_vercel-black?logo=vercel&style=flat-square)](https://repomedic.vercel.app)
 
-**RepoMedic** is a beautiful, professional, and zero-setup repository health dashboard. Drop any public GitHub URL or type `owner/repo` to instantly compile detailed risk scores, technology fingerprints, architecture maps, commit activity metrics, and prioritized diagnostic recommendations — all calculated client-side in under 10 seconds.
+**RepoMedic** is a beautiful, premium, and zero-setup repository health dashboard. Paste any public GitHub URL or shorthand `owner/repo` to instantly generate composite risk scores, technology stack footprints, structural architecture maps, commit activity metrics, and prioritized diagnostic recommendations — all calculated client-side in under 10 seconds.
 
-[**Explore the Live Demo »**](https://repomedic-ai.vercel.app)
+[**Explore the Live Demo »**](https://repomedic.vercel.app)
 
 ---
 
-### 🎨 Preview & Aesthetics
+### 🎨 Visual Showcase & Aesthetics
 
 <div align="center">
-  <img src="public/banner_mockup.png" alt="RepoMedic Dashboard Mockup" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 50px rgba(0,0,0,0.5);" />
+  <p><b>✨ The Ultimate Developer Dashboard for Repository Analytics ✨</b></p>
+  <img src="public/assets/og-image.png" alt="RepoMedic OG Social Launch Banner" width="100%" style="border-radius: 12px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 20px 50px rgba(0,0,0,0.5); margin-bottom: 24px;" />
 </div>
 
-> **Note**: Placeholder location for the official product dashboard screenshot or animated demo GIF (`/public/demo.gif`). See [Assets section](#-generating-assets) for mock details.
+#### 📸 Interactive Application Interface
+
+<div align="center">
+  <table border="0" cellspacing="10" cellpadding="0">
+    <tr>
+      <td align="center" valign="top" width="50%">
+        <img src="public/screenshots/landing_page.png" alt="RepoMedic Landing Page" width="100%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4);" />
+        <br />
+        <sub><b>🚀 High-Converting Landing Hero</b><br />Seamless URL parsing with responsive guides & quick examples.</sub>
+      </td>
+      <td align="center" valign="top" width="50%">
+        <img src="public/screenshots/dashboard.png" alt="RepoMedic Metrics Dashboard" width="100%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4);" />
+        <br />
+        <sub><b>📊 Diagnostic Analytics Center</b><br />Full scoring panel, tech stack density, and CVE vulnerability index.</sub>
+      </td>
+    </tr>
+    <tr>
+      <td align="center" valign="top" colspan="2" style="padding-top: 15px;">
+        <img src="public/screenshots/error_state.png" alt="RepoMedic Error Handling Screen" width="50%" style="border-radius: 8px; border: 1px solid rgba(255,255,255,0.08); box-shadow: 0 10px 25px rgba(0,0,0,0.4);" />
+        <br />
+        <sub><b>🩺 Resilient Error & Rate-Limit Handling</b><br />Polished fallback states featuring context-aware instructions and API token configuration.</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
+---
 
 ### 👾 Meet Our Diagnostic Mascots
 
 To make our dashboard experience more engaging, we designed custom developer medical robot mascots that float through the interface:
 
 <div align="center">
-  <table border="0">
+  <table border="0" cellspacing="10" cellpadding="0">
     <tr>
       <td align="center" width="50%">
-        <img src="public/medic_robot.png" alt="RepoMedic Smart Doctor Mascot" width="160" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(124,111,255,0.25));" />
+        <img src="public/medic_robot.png" alt="RepoMedic Smart Doctor Mascot" width="150" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(124,111,255,0.25));" />
         <br />
         <sub><b>Dr. RepoMedic</b><br />Active analysis guide on the Hero landing page</sub>
       </td>
       <td align="center" width="50%">
-        <img src="public/sad_medic.png" alt="RepoMedic Sad Doctor Mascot" width="160" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(255,80,120,0.2));" />
+        <img src="public/sad_medic.png" alt="RepoMedic Sad Doctor Mascot" width="150" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(255,80,120,0.2));" />
         <br />
         <sub><b>Stale / Error Medic</b><br />Friendly helper resolving exceptions on error states</sub>
       </td>
@@ -48,12 +75,23 @@ To make our dashboard experience more engaging, we designed custom developer med
 
 ---
 
+## ❓ Why RepoMedic?
+
+Developers, open-source maintainers, and security engineers constantly need to evaluate the health, risk, and structural pattern of repositories before using them in production. Typical tools require tedious local setup, command-line runs, or expensive subscription models. 
+
+**RepoMedic solves this by putting everything inside your browser:**
+* **Instant Verification**: Know if a dependency has critical CVEs, bad code maintainability, or stalling commit activity before you `npm install`.
+* **Zero Server Latency**: No databases or external processing servers. The entire diagnostic analysis runs directly in your local browser sandbox.
+* **Open-Source Ready**: Beautiful design to embed in team dashboards or run locally in offline environments.
+
+---
+
 ## ⚡ Key Features
 
 RepoMedic compiles data from 7 parallel GitHub REST API endpoints and runs a sophisticated, deterministic analysis engine client-side.
 
 ### 📊 1. Composite Health Scoring
-* **Health Score (40-99)**: Baseline trust score calculated from community traction, update recency, open issues ratios, and file patterns.
+* **Health Score (40-99)**: Overall trust score calculated from community traction, update recency, open issues ratios, and file patterns.
 * **Risk Score (5-85)**: Gauges maintenance risks, staleness, and issue backlog pressure.
 * **Maintainability & Security**: Benchmarks file sizing, language density, license compliance, and update frequency.
 
@@ -77,6 +115,18 @@ RepoMedic compiles data from 7 parallel GitHub REST API endpoints and runs a sop
 
 ---
 
+## 🛠️ Built for Developers (Built-in Tech Stack)
+
+RepoMedic is built on a highly performant, client-side React architecture:
+
+* **Core UI**: [React 19](https://react.dev) + [Vite 8](https://vite.dev) (Blazing-fast hot module reloading & builds)
+* **Styling**: [Tailwind CSS 4.0](https://tailwindcss.com) + custom CSS glassmorphism & responsive utilities
+* **Animations**: [Framer Motion 12](https://www.framer.com/motion/) (Smooth transitions, state changes, and progress steps)
+* **Icons**: [Lucide React](https://lucide.dev)
+* **Analysis**: Deterministic seed-hash diagnostics (`repoInsights.js`) that require zero costly or slow external server wrappers.
+
+---
+
 ## 🔒 Bypassing Rate Limits (API Personal Access Tokens)
 
 By default, the GitHub REST API limits unauthenticated requests to **60 requests per hour** per IP address. If you run into a rate limit:
@@ -85,18 +135,6 @@ By default, the GitHub REST API limits unauthenticated requests to **60 requests
 2. **Local and secure**: Paste a **Personal Access Token (PAT)**. Create a token with **zero scopes** (highly secure fine-grained or classic token) at [github.com/settings/tokens](https://github.com/settings/tokens).
 3. **No Backend**: The token is stored purely local to your browser (`localStorage`) and is only ever sent directly as an `Authorization` header to `api.github.com`.
 4. **Development environment**: Developers can configure a token inside a local `.env` file using the key `VITE_GITHUB_TOKEN`.
-
----
-
-## 🛠️ Tech Stack & Architecture
-
-RepoMedic is built on a highly performant, client-side React architecture:
-
-* **Core UI**: [React 19](https://react.dev) + [Vite 8](https://vite.dev) (Blazing-fast hot module reloading & builds)
-* **Styling**: [Tailwind CSS 4.0](https://tailwindcss.com) + custom CSS glassmorphism & responsive utilities
-* **Animations**: [Framer Motion 12](https://www.framer.com/motion/) (Smooth transitions, state changes, and progress steps)
-* **Icons**: [Lucide React](https://lucide.dev)
-* **Analysis**: Deterministic seed-hash diagnostics (`aiInsights.js`) that require zero costly or slow external server wrappers.
 
 ---
 
@@ -110,8 +148,8 @@ RepoMedic is built on a highly performant, client-side React architecture:
 
 1. **Clone the Repository**:
    ```bash
-   git clone https://github.com/26Naitik/repomedic-ai.git
-   cd repomedic-ai
+   git clone https://github.com/26Naitik/repomedic.git
+   cd repomedic
    ```
 
 2. **Configure Environment Variables**:

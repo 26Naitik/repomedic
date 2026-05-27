@@ -117,7 +117,7 @@ function SuggestionCard({ suggestion, index }) {
   );
 }
 
-export default function AISuggestions({ suggestions }) {
+export default function SmartSuggestions({ suggestions }) {
   const [filter, setFilter] = useState("ALL");
   const priorities = ["ALL", "HIGH", "MEDIUM", "LOW"];
 

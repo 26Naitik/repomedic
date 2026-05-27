@@ -1,4 +1,4 @@
-// Shared colour helpers (used by SecurityPanel & AISuggestions)
+// Shared colour helpers (used by SecurityPanel & SmartSuggestions)
 export function getPriorityColor(priority) {
   switch (priority) {
     case "HIGH":   return "red";

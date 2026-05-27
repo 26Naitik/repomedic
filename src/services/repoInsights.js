@@ -1,6 +1,6 @@
 /**
- * AI Insights Engine
- * Takes real GitHub data and generates plausible, context-aware "AI" analysis.
+ * RepoMedic Diagnostic Engine
+ * Takes real GitHub data and generates plausible, context-aware repository intelligence.
  * All logic is deterministic-ish — seeded by real values so the same repo
  * always produces similar scores.
  */
@@ -166,7 +166,7 @@ export function enrichTechStack(techStack) {
   });
 }
 
-// ── README → AI Summary ─────────────────────────────────────────────────────
+// ── README → Smart Summary ───────────────────────────────────────────────────
 export function generateReadmeSummary(readmeText, data) {
   if (!readmeText || readmeText.length < 50) {
     return `${data.repoName} is a ${data.language || "multi-language"} repository ` +
@@ -264,7 +264,7 @@ export function analyzeArchitecture(fileTree, data) {
   };
 }
 
-// ── AI Suggestions ──────────────────────────────────────────────────────────
+// ── Smart Suggestions ──────────────────────────────────────────────────────────
 export function generateSuggestions(data, arch) {
   const suggestions = [];
   const daysSincePush = (Date.now() - new Date(data.pushedAt)) / 86400000;
@@ -377,7 +377,7 @@ export function generateSuggestions(data, arch) {
     });
   }
 
-  // Always include a positive AI tip
+  // Always include a positive diagnostic tip
   suggestions.push({
     priority: "LOW",
     category: "Performance",
@@ -455,7 +455,7 @@ export function buildAnalysis(rawData) {
 
   const techStack = enrichTechStack(rawData.techStack);
   const readmeSummary = generateReadmeSummary(rawData.readmeText, rawData);
-  const aiSuggestions = generateSuggestions(rawData, arch);
+  const smartSuggestions = generateSuggestions(rawData, arch);
   const vulnerabilities = generateVulns(rawData);
   const commitActivity  = processCommitActivity(rawData.weeklyActivity, rawData.repoName);
   const codeMetrics = calcCodeMetrics(rawData, rawData.fileTree);
@@ -509,7 +509,7 @@ export function buildAnalysis(rawData) {
     // Derived data
     techStack,
     architecture: arch,
-    aiSuggestions,
+    smartSuggestions,
     vulnerabilities,
     commitActivity,
     codeMetrics,

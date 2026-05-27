@@ -1,6 +1,6 @@
-# Contributing to RepoMedic AI
+# Contributing to RepoMedic
 
-Welcome! 👋 We're excited that you're interested in contributing to RepoMedic AI. This guide will help you get started, whether you're fixing a bug, adding a feature, or improving documentation.
+Welcome! 👋 We're excited that you're interested in contributing to RepoMedic. This guide will help you get started, whether you're fixing a bug, adding a feature, or improving documentation.
 
 ## 📋 Table of Contents
 
@@ -54,11 +54,11 @@ Before you begin, ensure you have the following installed:
 
 ```bash
 # Fork the repository on GitHub, then clone your fork
-git clone https://github.com/YOUR_USERNAME/repomedic-ai.git
-cd repomedic-ai
+git clone https://github.com/YOUR_USERNAME/repomedic.git
+cd repomedic
 
 # Add upstream remote
-git remote add upstream https://github.com/ORIGINAL_OWNER/repomedic-ai.git
+git remote add upstream https://github.com/ORIGINAL_OWNER/repomedic.git
 ```
 
 ### 2. Install Dependencies
@@ -86,16 +86,18 @@ The app will be available at `http://localhost:5173`
 ### 4. Verify Setup
 
 1. Open `http://localhost:5173` in your browser
-2. Try analyzing a repository (e.g., `https://github.com/facebook/react`)
+2. Try analyzing a repository (e.g., `facebook/react`)
 3. Verify the analysis completes successfully
 
 ## 📁 Project Structure
 
 ```
-repomedic-ai/
+repomedic/
 ├── public/                    # Static assets
 │   ├── favicon.svg           # App icon
-│   └── icons.svg             # SVG sprite sheet
+│   ├── icons.svg             # SVG sprite sheet
+│   ├── screenshots/          # Image previews
+│   └── assets/               # Branding assets
 │
 ├── src/
 │   ├── main.jsx              # Application entry point
@@ -112,7 +114,7 @@ repomedic-ai/
 │   │   ├── ScorePanel.jsx    # Health score visualizations
 │   │   ├── TechStack.jsx     # Language breakdown cards
 │   │   ├── ArchitectureOverview.jsx  # Project structure analysis
-│   │   ├── AISuggestions.jsx # AI-generated recommendations
+│   │   ├── SmartSuggestions.jsx # Actionable recommendations
 │   │   ├── SecurityPanel.jsx # Vulnerability display
 │   │   ├── CommitActivity.jsx # Commit history chart
 │   │   ├── OnboardingGuide.jsx # Feature walkthrough
@@ -120,16 +122,12 @@ repomedic-ai/
 │   │
 │   ├── services/             # Business logic
 │   │   ├── githubApi.js      # GitHub API integration
-│   │   └── aiInsights.js     # Analysis algorithms
+│   │   └── repoInsights.js   # Analysis algorithms
 │   │
 │   ├── data/
 │   │   └── mockData.js       # Utility functions
 │   │
-│   └── assets/               # Images & icons
-│       ├── hero.png
-│       ├── react.svg
-│       └── vite.svg
-│
+│   └── assets/               # Static images
 ├── package.json              # Dependencies & scripts
 ├── vite.config.js            # Vite configuration
 ├── eslint.config.js          # ESLint rules
@@ -144,7 +142,7 @@ repomedic-ai/
 |------|---------|--------------|
 | [`src/App.jsx`](src/App.jsx:1) | State machine & routing | Adding new app states |
 | [`src/services/githubApi.js`](src/services/githubApi.js:1) | GitHub API calls | Adding new API endpoints |
-| [`src/services/aiInsights.js`](src/services/aiInsights.js:1) | Analysis algorithms | Modifying scoring logic |
+| [`src/services/repoInsights.js`](src/services/repoInsights.js:1) | Analysis algorithms | Modifying scoring logic |
 | [`src/components/Dashboard.jsx`](src/components/Dashboard.jsx:1) | Results layout | Adding new dashboard sections |
 | [`src/index.css`](src/index.css:1) | Global styles | Changing design system |
 
@@ -239,10 +237,6 @@ git push origin feature/your-feature-name
 ### JavaScript/JSX Style
 
 ```javascript
-// ✅ Good: Use const/let, not var
-const userName = "Alice";
-let counter = 0;
-
 // ✅ Good: Destructure props
 export default function MyComponent({ data, onReset }) {
   // component code
@@ -260,14 +254,6 @@ function processData(data) {
   if (data.length === 0) return [];
   // process data
 }
-
-// ✅ Good: Descriptive function names
-function calculateHealthScore(repoData) { }
-function formatCommitDate(timestamp) { }
-
-// ❌ Bad: Vague names
-function calc(d) { }
-function fmt(t) { }
 ```
 
 ### Component Structure
@@ -316,30 +302,19 @@ export default function MyComponent({ data, onAction }) {
     </motion.div>
   );
 }
-
-// 4. Sub-components (if needed)
-function SubComponent({ item }) {
-  return <div>{item.name}</div>;
-}
 ```
 
 ### CSS/Styling Guidelines
 
-```css
-/* Use CSS variables for colors */
-.my-component {
-  color: var(--text-primary);
-  background: var(--bg-base);
-}
+```javascript
+// Use inline styles for dynamic values
+<div style={{ width: `${percentage}%`, color: getScoreColor(score) }} />
 
-/* Use Tailwind utilities when possible */
-<div className="flex items-center gap-4 p-6 rounded-lg">
+// Use className for static styles
+<div className="glass-card" />
 
-/* Custom styles in style prop for dynamic values */
-<div style={{ 
-  width: `${percentage}%`,
-  color: getScoreColor(score)
-}}>
+// Use CSS variables for theme colors
+<div style={{ color: "var(--text-primary)", background: "var(--bg-base)" }} />
 ```
 
 ### File Naming
@@ -347,7 +322,6 @@ function SubComponent({ item }) {
 - Components: `PascalCase.jsx` (e.g., `ScorePanel.jsx`)
 - Services: `camelCase.js` (e.g., `githubApi.js`)
 - Utilities: `camelCase.js` (e.g., `mockData.js`)
-- Styles: `kebab-case.css` or `PascalCase.css`
 
 ## 🧪 Testing Guidelines
 
@@ -359,7 +333,7 @@ Before submitting a PR, test:
 - [ ] **Error Cases**:
   - Invalid URL format
   - Non-existent repository
-  - Private repository (should show 404)
+  - Private repository
   - Network offline
 - [ ] **Edge Cases**:
   - Very large repo (>100MB)
@@ -367,35 +341,10 @@ Before submitting a PR, test:
   - Repo with no license
   - Fork vs original repo
 - [ ] **UI/UX**:
-  - Mobile responsive (test at 375px, 768px, 1024px)
+  - Mobile responsive (test at 320px, 768px, 1024px)
   - Loading states work correctly
   - Animations are smooth
   - No console errors
-- [ ] **Browser Compatibility**:
-  - Chrome/Edge (latest)
-  - Firefox (latest)
-  - Safari (latest)
-
-### Testing New Features
-
-```javascript
-// Example: Testing a new score calculation
-function testHealthScore() {
-  const mockData = {
-    stars: 50000,
-    pushedAt: new Date().toISOString(),
-    description: "A great project",
-    license: "MIT",
-    topics: ["react", "vite", "tailwind"],
-    openIssues: 50,
-    forks: 1000
-  };
-  
-  const score = calcHealthScore(mockData);
-  console.log("Health Score:", score);
-  console.assert(score >= 40 && score <= 99, "Score out of range");
-}
-```
 
 ## 📤 Submitting Changes
 
@@ -403,65 +352,16 @@ function testHealthScore() {
 
 1. **Update Documentation**: If you changed functionality, update relevant docs
 2. **Self-Review**: Review your own code before submitting
-3. **Write Clear PR Description**:
-
-```markdown
-## Description
-Brief description of what this PR does
-
-## Type of Change
-- [ ] Bug fix
-- [ ] New feature
-- [ ] Breaking change
-- [ ] Documentation update
-
-## Testing
-- [ ] Tested locally
-- [ ] Tested on mobile
-- [ ] No console errors
-
-## Screenshots (if applicable)
-[Add screenshots here]
-
-## Related Issues
-Closes #123
-```
-
-4. **Request Review**: Tag maintainers or wait for automatic review assignment
-5. **Address Feedback**: Respond to review comments promptly
-6. **Merge**: Once approved, a maintainer will merge your PR
-
-### PR Review Criteria
-
-Your PR will be reviewed for:
-- ✅ Code quality and readability
-- ✅ Follows project conventions
-- ✅ No breaking changes (or properly documented)
-- ✅ Performance impact
-- ✅ Accessibility considerations
-- ✅ Mobile responsiveness
+3. **Write Clear PR Description**
 
 ## 🎨 Component Development Guide
 
 ### Creating a New Component
 
-```bash
-# 1. Create the component file
-touch src/components/MyNewComponent.jsx
-
-# 2. Use this template:
-```
-
 ```javascript
 import { motion } from "framer-motion";
 import { Icon } from "lucide-react";
 
-/**
- * MyNewComponent - Brief description
- * @param {Object} props
- * @param {Array} props.data - Description of data prop
- * @param {Function} props.onAction - Description of callback
- */
 export default function MyNewComponent({ data, onAction }) {
   return (
     <motion.section
@@ -470,12 +370,7 @@ export default function MyNewComponent({ data, onAction }) {
       className="glass-card"
       style={{ padding: 24, marginBottom: 24 }}
     >
-      <h2 style={{ 
-        fontFamily: "var(--font-head)", 
-        fontSize: 20, 
-        fontWeight: 700,
-        marginBottom: 16 
-      }}>
+      <h2 style={{ fontFamily: "var(--font-head)", fontSize: 20, fontWeight: 700, marginBottom: 16 }}>
         Section Title
       </h2>
       
@@ -490,54 +385,6 @@ export default function MyNewComponent({ data, onAction }) {
     </motion.section>
   );
 }
-```
-
-### Adding to Dashboard
-
-```javascript
-// In src/components/Dashboard.jsx
-import MyNewComponent from "./MyNewComponent";
-
-export default function Dashboard({ data, onReset }) {
-  return (
-    <div>
-      {/* Existing components */}
-      <RepoHeader data={data} />
-      <ScorePanel data={data} />
-      
-      {/* Add your new component */}
-      <MyNewComponent 
-        data={data.myNewData} 
-        onAction={handleAction}
-      />
-    </div>
-  );
-}
-```
-
-### Styling Best Practices
-
-```javascript
-// Use inline styles for dynamic values
-<div style={{ 
-  width: `${percentage}%`,
-  background: getColor(value)
-}} />
-
-// Use className for static styles
-<div className="glass-card" />
-
-// Combine both when needed
-<div 
-  className="glass-card"
-  style={{ marginTop: index * 8 }}
-/>
-
-// Use CSS variables for theme colors
-<div style={{ 
-  color: "var(--text-primary)",
-  background: "var(--bg-base)"
-}} />
 ```
 
 ## 🛠️ Common Tasks
@@ -562,8 +409,8 @@ export async function analyzeRepo(owner, repo) {
     : null;
   
   return {
-    // existing fields...
-    newData, // Add to return object
+    ...existingFields,
+    newData, 
   };
 }
 ```
@@ -571,37 +418,25 @@ export async function analyzeRepo(owner, repo) {
 ### Adding a New Score Metric
 
 ```javascript
-// In src/services/aiInsights.js
+// In src/services/repoInsights.js
 
 function calcMyNewScore(data) {
   let score = 75; // baseline
   
   // Add scoring logic
   if (data.someMetric > 1000) score += 10;
-  if (data.anotherMetric < 50) score -= 5;
   
   // Add seeded randomness for consistency
   score += seededInt(data.repoName + "mynew", -3, 3);
   
-  // Clamp to valid range
   return Math.max(30, Math.min(99, score));
-}
-
-// Add to buildAnalysis function
-export function buildAnalysis(rawData) {
-  const myNewScore = calcMyNewScore(rawData);
-  
-  return {
-    // existing fields...
-    myNewScore, // Add to return object
-  };
 }
 ```
 
-### Adding a New AI Suggestion
+### Adding a New Smart Suggestion
 
 ```javascript
-// In src/services/aiInsights.js, in generateSuggestions()
+// In src/services/repoInsights.js, in generateSuggestions()
 
 export function generateSuggestions(data, arch) {
   const suggestions = [];
@@ -609,13 +444,13 @@ export function generateSuggestions(data, arch) {
   // Add your new suggestion logic
   if (/* your condition */) {
     suggestions.push({
-      priority: "HIGH", // HIGH | MEDIUM | LOW
-      category: "Quality", // Quality | DevOps | Documentation | etc.
+      priority: "HIGH", 
+      category: "Quality", 
       icon: "🎯",
       title: "Your suggestion title",
       description: "Detailed explanation of the suggestion and why it matters.",
-      effort: "Medium", // Low | Medium | High
-      impact: "High",   // Low | Medium | High
+      effort: "Medium", 
+      impact: "High",   
     });
   }
   
@@ -623,128 +458,16 @@ export function generateSuggestions(data, arch) {
 }
 ```
 
-### Modifying the Color Scheme
-
-```css
-/* In src/index.css */
-
-:root {
-  /* Change these values */
-  --bg-base: #0a0a0f;
-  --text-primary: #f0f0f5;
-  --neon-purple: #7c6fff;
-  --neon-cyan: #00d4ff;
-  --neon-green: #00ffa3;
-  
-  /* Gradients will update automatically */
-  --gradient-primary: linear-gradient(135deg, var(--neon-purple), var(--neon-cyan));
-}
-```
-
 ## 🐛 Troubleshooting
-
-### Common Issues
-
-#### Issue: "Module not found" error
-
-```bash
-# Solution: Clear cache and reinstall
-rm -rf node_modules package-lock.json
-npm install
-```
-
-#### Issue: Vite dev server won't start
-
-```bash
-# Solution: Check if port 5173 is in use
-# Kill the process or change port in vite.config.js
-export default defineConfig({
-  server: { port: 3000 }
-});
-```
-
-#### Issue: GitHub API rate limit
-
-```bash
-# Solution: Wait 1 hour or use GitHub token
-# Add to .env.local (not committed):
-VITE_GITHUB_TOKEN=your_token_here
-
-# Update githubApi.js:
-headers: {
-  Authorization: `token ${import.meta.env.VITE_GITHUB_TOKEN}`
-}
-```
-
-#### Issue: Styles not updating
-
-```bash
-# Solution: Hard refresh browser
-# Chrome/Edge: Ctrl+Shift+R (Windows) or Cmd+Shift+R (Mac)
-# Or clear Vite cache:
-rm -rf node_modules/.vite
-npm run dev
-```
-
-#### Issue: ESLint errors
-
-```bash
-# Solution: Auto-fix most issues
-npm run lint -- --fix
-
-# Or disable specific rules in eslint.config.js
-```
 
 ### Getting Help
 
-- **GitHub Issues**: [Create an issue](https://github.com/OWNER/repomedic-ai/issues)
-- **Discussions**: [Join discussions](https://github.com/OWNER/repomedic-ai/discussions)
+- **GitHub Issues**: [Create an issue](https://github.com/OWNER/repomedic/issues)
+- **Discussions**: [Join discussions](https://github.com/OWNER/repomedic/discussions)
 - **Documentation**: Check [`ARCHITECTURE.md`](ARCHITECTURE.md:1) for technical details
 
-## 📚 Additional Resources
-
-### Learning Resources
-
-- **React**: [Official React Docs](https://react.dev/)
-- **Vite**: [Vite Guide](https://vitejs.dev/guide/)
-- **Tailwind CSS**: [Tailwind Docs](https://tailwindcss.com/docs)
-- **Framer Motion**: [Motion Docs](https://www.framer.com/motion/)
-- **GitHub API**: [REST API Docs](https://docs.github.com/en/rest)
-
-### Useful Commands
-
-```bash
-# Development
-npm run dev              # Start dev server
-npm run build            # Build for production
-npm run preview          # Preview production build
-npm run lint             # Run ESLint
-npm run lint -- --fix    # Auto-fix linting issues
-
-# Git
-git status               # Check current changes
-git log --oneline        # View commit history
-git diff                 # View unstaged changes
-git stash                # Temporarily save changes
-git stash pop            # Restore stashed changes
-
-# Debugging
-console.log()            # Basic logging
-console.table()          # Table format for objects/arrays
-debugger;                # Breakpoint in browser DevTools
-```
-
-## 🎉 Recognition
-
-Contributors will be:
-- Listed in the project README
-- Mentioned in release notes
-- Credited in commit history
-
-Thank you for contributing to RepoMedic AI! 🚀
+Thank you for contributing to RepoMedic! 🚀
 
 ---
 
-**Questions?** Open an issue or start a discussion. We're here to help!
-
-**Last Updated:** 2026-05-17
+**Last Updated:** 2026-05-27
