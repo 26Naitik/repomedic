@@ -172,6 +172,30 @@ export default function HeroSection({ onAnalyze }) {
           </motion.div>
         </motion.div>
 
+        {/* Floating Mascot Illustration */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: [0, -8, 0] }}
+          transition={{
+            opacity: { duration: 0.6, delay: 0.6 },
+            y: { repeat: Infinity, duration: 4, ease: "easeInOut" }
+          }}
+          style={{ display: "flex", justifyContent: "center", marginTop: 48, marginBottom: 12 }}
+        >
+          <img
+            src="/medic_robot.png"
+            alt="RepoMedic Mascot"
+            style={{
+              width: "100%",
+              maxWidth: 200,
+              height: "auto",
+              filter: "drop-shadow(0 0 32px rgba(124,111,255,0.25))",
+              borderRadius: 20,
+              border: "1px solid rgba(255, 255, 255, 0.08)",
+            }}
+          />
+        </motion.div>
+
         {/* Stats row */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}

@@ -23,6 +23,27 @@
 
 > **Note**: Placeholder location for the official product dashboard screenshot or animated demo GIF (`/public/demo.gif`). See [Assets section](#-generating-assets) for mock details.
 
+### 👾 Meet Our Diagnostic Mascots
+
+To make our dashboard experience more engaging, we designed custom developer medical robot mascots that float through the interface:
+
+<div align="center">
+  <table border="0">
+    <tr>
+      <td align="center" width="50%">
+        <img src="public/medic_robot.png" alt="RepoMedic Smart Doctor Mascot" width="160" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(124,111,255,0.25));" />
+        <br />
+        <sub><b>Dr. RepoMedic</b><br />Active analysis guide on the Hero landing page</sub>
+      </td>
+      <td align="center" width="50%">
+        <img src="public/sad_medic.png" alt="RepoMedic Sad Doctor Mascot" width="160" style="border-radius: 16px; border: 1px solid rgba(255,255,255,0.08); filter: drop-shadow(0 0 16px rgba(255,80,120,0.2));" />
+        <br />
+        <sub><b>Stale / Error Medic</b><br />Friendly helper resolving exceptions on error states</sub>
+      </td>
+    </tr>
+  </table>
+</div>
+
 </div>
 
 ---

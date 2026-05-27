@@ -54,20 +54,24 @@ export default function ErrorScreen({ error, onReset, lastUrl }) {
       }}
     >
       <div style={{ maxWidth: 520, width: "100%", textAlign: "center" }}>
-        {/* Error icon */}
+        {/* Error mascot */}
         <motion.div
-          animate={{ scale: [1, 1.05, 1] }}
-          transition={{ duration: 2.5, repeat: Infinity, ease: "easeInOut" }}
-          style={{
-            width: 80, height: 80, borderRadius: 24,
-            background: `${cfg.color}18`,
-            border: `1px solid ${cfg.color}40`,
-            display: "flex", alignItems: "center", justifyContent: "center",
-            margin: "0 auto 28px",
-            boxShadow: `0 0 30px ${cfg.color}25`,
-          }}
+          animate={{ y: [0, -4, 0] }}
+          transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+          style={{ display: "flex", justifyContent: "center", marginBottom: 28 }}
         >
-          {cfg.icon}
+          <img
+            src="/sad_medic.png"
+            alt="Sad Mascot"
+            style={{
+              width: "100%",
+              maxWidth: 150,
+              height: "auto",
+              filter: "drop-shadow(0 0 24px rgba(255, 80, 120, 0.2))",
+              borderRadius: 16,
+              border: "1px solid rgba(255, 80, 120, 0.15)",
+            }}
+          />
         </motion.div>
 
         <h2 style={{ fontFamily: "var(--font-head)", fontSize: 26, fontWeight: 800, marginBottom: 12, color: cfg.color }}>
