@@ -204,7 +204,6 @@ export function analyzeArchitecture(fileTree, data) {
   const hasSrc     = paths.some((p) => /^src\//i.test(p));
   const hasPackages = paths.some((p) => /^packages\//i.test(p));
   const hasApps    = paths.some((p) => /^apps\//i.test(p));
-  const hasExamples = paths.some((p) => /^examples?\//i.test(p));
 
   const isMonorepo = hasPackages || hasApps;
   const type = isMonorepo ? "Monorepo" : "Single Package";

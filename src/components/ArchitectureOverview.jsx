@@ -64,7 +64,7 @@ export default function ArchitectureOverview({ architecture }) {
         })}
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24 }}>
+      <div className="grid-2" style={{ gap: 24 }}>
         {/* Directory listing */}
         <div>
           <div style={{ fontSize: 12, color: "var(--text-muted)", fontWeight: 600, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 14 }}>

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { BookOpen, ChevronRight, CheckCircle2, X } from "lucide-react";
+import { BookOpen, X } from "lucide-react";
 
 const STEPS = [
   {
@@ -12,18 +12,18 @@ const STEPS = [
   {
     step: 2,
     title: "Click 'Analyze'",
-    description: "RepoMedic AI clones metadata, parses the file tree, detects dependencies, and runs our vulnerability scanner — all in under 10 seconds.",
+    description: "RepoMedic fetches repository metadata, parses the file tree, detects language breakdowns, and runs dependency checks — all in under 10 seconds.",
     icon: "⚡",
   },
   {
     step: 3,
     title: "Review your dashboard",
-    description: "Your results dashboard shows a Risk Score, Health Metrics, Tech Stack fingerprint, Architecture map, and prioritized AI Suggestions.",
+    description: "Your results dashboard shows a Risk Score, Health Metrics, Tech Stack fingerprint, Architecture map, and prioritized Smart Suggestions.",
     icon: "📊",
   },
   {
     step: 4,
-    title: "Act on AI recommendations",
+    title: "Act on recommendations",
     description: "Each suggestion includes effort vs. impact ratings and a detailed description. Filter by priority to focus on what matters most.",
     icon: "🚀",
   },
@@ -89,7 +89,7 @@ export default function OnboardingGuide() {
           </div>
           <div>
             <h3 style={{ fontFamily: "var(--font-head)", fontSize: 17, fontWeight: 700, lineHeight: 1 }}>
-              Getting Started with RepoMedic AI
+              Getting Started with RepoMedic
             </h3>
             <p style={{ fontSize: 12, color: "var(--text-muted)", marginTop: 3 }}>4-step quick guide</p>
           </div>

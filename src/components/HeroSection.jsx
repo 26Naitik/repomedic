@@ -23,7 +23,7 @@ export default function HeroSection({ onAnalyze }) {
     onAnalyze(trimmed);
   }
 
-  function useExample(exUrl) {
+  function selectExample(exUrl) {
     setUrl(exUrl);
     setError("");
     inputRef.current?.focus();
@@ -58,7 +58,7 @@ export default function HeroSection({ onAnalyze }) {
         >
           <div className="badge badge-purple" style={{ fontSize: 12, padding: "6px 16px", gap: 6 }}>
             <Sparkles size={12} />
-            AI-Powered Repository Intelligence
+            Smart Repository Intelligence
           </div>
         </motion.div>
 
@@ -69,10 +69,10 @@ export default function HeroSection({ onAnalyze }) {
           transition={{ delay: 0.2, duration: 0.6 }}
           style={{ fontFamily: "var(--font-head)", fontSize: "clamp(40px, 7vw, 72px)", fontWeight: 800, letterSpacing: "-2px", lineHeight: 1.05, marginBottom: 20 }}
         >
-          Diagnose Your{" "}
-          <span className="gradient-text">GitHub Repo</span>
+          Analyze Any{" "}
+          <span className="gradient-text">GitHub Repository</span>
           <br />
-          In Seconds
+          Instantly
         </motion.h1>
 
         {/* Subhead */}
@@ -82,8 +82,8 @@ export default function HeroSection({ onAnalyze }) {
           transition={{ delay: 0.35, duration: 0.5 }}
           style={{ fontSize: "clamp(16px, 2vw, 19px)", color: "var(--text-secondary)", maxWidth: 600, margin: "0 auto 48px", lineHeight: 1.6 }}
         >
-          Drop any public GitHub URL. Get an instant AI diagnosis — risk scores,
-          tech stack analysis, security vulnerabilities, and actionable fixes.
+          Drop any public GitHub URL or type <code style={{ color: "var(--neon-purple)" }}>owner/repo</code>. Get an instant health report — risk scores,
+          vulnerabilities analysis, technology stack breakdown, and actionable diagnostics.
         </motion.p>
 
         {/* Input form */}
@@ -154,7 +154,7 @@ export default function HeroSection({ onAnalyze }) {
               return (
                 <button
                   key={repo}
-                  onClick={() => useExample(repo)}
+                  onClick={() => selectExample(repo)}
                   style={{
                     background: "none", border: "1px solid var(--border)",
                     borderRadius: 100, padding: "4px 12px",

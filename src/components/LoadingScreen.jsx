@@ -1,4 +1,4 @@
-import { motion, AnimatePresence } from "framer-motion";
+import { motion } from "framer-motion";
 import { Activity, CheckCircle2, Loader2 } from "lucide-react";
 
 const STEPS = [
@@ -8,7 +8,7 @@ const STEPS = [
   { id: 4, label: "Analysing contributors & activity…"  },
   { id: 5, label: "Scanning file tree & architecture…"  },
   { id: 6, label: "Running vulnerability checks…"       },
-  { id: 7, label: "Generating AI insights…"             },
+  { id: 7, label: "Running diagnostic assessments…"     },
   { id: 8, label: "Compiling final report…"             },
 ];
 

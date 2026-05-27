@@ -139,7 +139,7 @@ export default function RepoHeader({ data }) {
         ))}
       </div>
 
-      {/* AI summary strip */}
+      {/* Smart summary strip */}
       {data.readmeSummary && (
         <div style={{
           marginTop: 18,
@@ -149,7 +149,7 @@ export default function RepoHeader({ data }) {
           borderRadius: 12,
         }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: "var(--neon-purple)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 7, display: "flex", alignItems: "center", gap: 6 }}>
-            ✨ AI Summary
+            ✨ Smart Summary
           </div>
           <p style={{ fontSize: 13.5, color: "var(--text-secondary)", lineHeight: 1.65, margin: 0 }}>
             {data.readmeSummary}

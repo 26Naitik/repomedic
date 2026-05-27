@@ -3,7 +3,17 @@ const BASE = "https://api.github.com";
 /** Parse "owner/repo" from any GitHub URL shape */
 export function parseGitHubUrl(url) {
   try {
-    const cleaned = url.trim().replace(/\.git$/, "").replace(/\/$/, "");
+    const trimmed = url.trim();
+    if (!trimmed) return null;
+
+    // 1. Check if it's a simple "owner/repo" shorthand
+    const shortcodeMatch = trimmed.match(/^([\w.-]+)\/([\w.-]+)$/);
+    if (shortcodeMatch) {
+      return { owner: shortcodeMatch[1], repo: shortcodeMatch[2] };
+    }
+
+    // 2. Parse full URL / SSH shapes
+    const cleaned = trimmed.replace(/\.git$/, "").replace(/\/$/, "");
     const match = cleaned.match(/github\.com[/:]([\w.-]+)\/([\w.-]+)/);
     if (!match) return null;
     return { owner: match[1], repo: match[2] };
@@ -12,14 +22,22 @@ export function parseGitHubUrl(url) {
   }
 }
 
-/** Fetch JSON from GitHub API with proper headers */
+/** Fetch JSON from GitHub API with proper headers and PAT token if available */
 async function ghFetch(path) {
-  const res = await fetch(`${BASE}${path}`, {
-    headers: {
-      Accept: "application/vnd.github+json",
-      "X-GitHub-Api-Version": "2022-11-28",
-    },
-  });
+  const localToken = localStorage.getItem("repomedic_pat");
+  const envToken = import.meta.env.VITE_GITHUB_TOKEN;
+  const token = localToken || envToken;
+
+  const headers = {
+    Accept: "application/vnd.github+json",
+    "X-GitHub-Api-Version": "2022-11-28",
+  };
+
+  if (token && token.trim()) {
+    headers["Authorization"] = `Bearer ${token.trim()}`;
+  }
+
+  const res = await fetch(`${BASE}${path}`, { headers });
   if (!res.ok) {
     const err = await res.json().catch(() => ({}));
     throw new GHError(res.status, err.message || res.statusText, path);
@@ -96,7 +114,7 @@ export async function analyzeRepo(owner, repo) {
   }
 
   // File tree (best-effort — large repos may 409/truncate)
-  let fileTree = [];
+  let fileTree;
   try {
     const tree = await ghFetch(
       `/repos/${owner}/${repo}/git/trees/HEAD?recursive=1`

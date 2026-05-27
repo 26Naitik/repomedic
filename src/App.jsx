@@ -146,11 +146,11 @@ export default function App() {
 // ── Feature grid ────────────────────────────────────────────────────────────
 const FEATURES = [
   { icon: "🔬", title: "Real GitHub Data",       desc: "Fetches live repo metadata, languages, contributors, commit history, and file tree via the GitHub public API." },
-  { icon: "🛡️", title: "CVE Vulnerability Scan", desc: "Cross-references your dependency tree against the NVD and GitHub Advisory Database for known CVEs." },
-  { icon: "🤖", title: "AI-Generated Insights",  desc: "Context-aware suggestions powered by real code signals — test coverage, CI/CD, docs, and activity trends." },
+  { icon: "🛡️", title: "Security Scan",          desc: "Analyzes repository structure, files, and dependencies to detect potential security vulnerabilities." },
+  { icon: "⚡", title: "Smart Diagnostics",       desc: "Context-aware suggestions powered by real code signals — test coverage, CI/CD pipelines, documentation, and activity." },
   { icon: "📐", title: "Architecture Map",        desc: "Detects monorepos, test suites, CI pipelines, Docker configs, and directory patterns automatically." },
   { icon: "❤️", title: "Health Score",           desc: "Composite score calculated from stars, recency, license, issues, topics, and community activity signals." },
-  { icon: "⚡", title: "Instant Analysis",        desc: "Parallel API calls and edge-cached results mean you get a full diagnosis in seconds, no backend needed." },
+  { icon: "📦", title: "Instant Analysis",        desc: "Parallel API calls and client-side processing mean you get a full diagnosis in seconds, no backend needed." },
 ];
 
 function FeatureGrid() {
@@ -167,7 +167,7 @@ function FeatureGrid() {
           <span className="gradient-text">healthier code</span>
         </h2>
         <p style={{ fontSize: 16, color: "var(--text-secondary)", maxWidth: 520, margin: "0 auto" }}>
-          Real GitHub data. Fake AI confidence. Beautifully packaged for your next product review.
+          Real GitHub data. Smart diagnostic metrics. Beautifully packaged for open-source analysis.
         </p>
       </motion.div>
 
@@ -209,12 +209,12 @@ function Footer() {
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: 15, background: "var(--gradient-primary)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>
-            RepoMedic AI
+            RepoMedic
           </div>
-          <span style={{ fontSize: 12, color: "var(--text-muted)" }}>— Repository Health Intelligence</span>
+          <span style={{ fontSize: 12, color: "var(--text-muted)" }}>— Repository Health Dashboard</span>
         </div>
         <div style={{ fontSize: 12, color: "var(--text-muted)" }}>
-          Uses GitHub public API · 60 req/hr limit · No auth required · © {new Date().getFullYear()}
+          Uses GitHub REST API · Rate limits can be expanded via Personal Access Token · © {new Date().getFullYear()}
         </div>
       </div>
     </footer>

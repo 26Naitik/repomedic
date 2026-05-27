@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { RefreshCw, Download, Share2, Clock, CheckCircle2 } from "lucide-react";
+import { RefreshCw, Download, Share2, CheckCircle2 } from "lucide-react";
 import RepoHeader from "./RepoHeader";
 import ScorePanel from "./ScorePanel";
 import TechStack from "./TechStack";
@@ -80,7 +80,7 @@ export default function Dashboard({ data, onReset }) {
           }}
         >
           <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--neon-green)", display: "inline-block", boxShadow: "0 0 6px var(--neon-green)" }} />
-          Live data from GitHub API · AI insights generated
+          Live data from GitHub API · Smart diagnostics compiled
         </motion.div>
 
         {/* Sections */}
@@ -88,7 +88,7 @@ export default function Dashboard({ data, onReset }) {
         <ScorePanel data={data} />
 
         {/* Two-col row */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16, marginBottom: 24 }}>
+        <div className="grid-2" style={{ marginBottom: 24 }}>
           <CommitActivity commitActivity={data.commitActivity} />
           <SecurityPanel vulnerabilities={data.vulnerabilities} />
         </div>

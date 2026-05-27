@@ -374,3 +374,24 @@ code, pre, .mono { font-family: var(--font-mono); }
 /* ── Score ring SVG ───────────────────────────── */
 .score-ring-bg { fill: none; stroke: rgba(255,255,255,0.06); }
 .score-ring-fill { fill: none; stroke-linecap: round; transition: stroke-dashoffset 1.5s cubic-bezier(0.4, 0, 0.2, 1); }
+
+/* ── Responsive Hides ─────────────────────────── */
+@media (max-width: 840px) {
+  .hide-tablet { display: none !important; }
+}
+@media (max-width: 580px) {
+  .hide-mobile { display: none !important; }
+}
+
+/* ── Score Grid ───────────────────────────────── */
+.score-grid {
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+@media (max-width: 960px) {
+  .score-grid {
+    grid-template-columns: 1fr;
+  }
+}

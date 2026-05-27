@@ -150,7 +150,7 @@ function RiskGauge({ score }) {
 // ── Main ScorePanel ──────────────────────────────────────────────────────────
 export default function ScorePanel({ data }) {
   return (
-    <div style={{ display: "grid", gridTemplateColumns: "200px 1fr", gap: 16, marginBottom: 24 }}>
+    <div className="score-grid">
       <RiskGauge score={data.riskScore} />
 
       <motion.div
@@ -183,7 +183,7 @@ export default function ScorePanel({ data }) {
         </div>
 
         {/* Code metric bars */}
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "14px 32px" }}>
+        <div className="grid-2" style={{ gap: "14px 32px" }}>
           {[
             { label: "Test Coverage",  value: data.codeMetrics.testCoverage,  max: 100, suffix: "%",    goodHigh: true  },
             { label: "Code Duplication", value: data.codeMetrics.duplication, max: 20,  suffix: "%",    goodHigh: false },

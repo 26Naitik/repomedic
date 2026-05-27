@@ -141,7 +141,7 @@ export default function AISuggestions({ suggestions }) {
           }}>
             <Sparkles size={16} color="var(--neon-purple)" />
           </div>
-          <h3 style={{ fontFamily: "var(--font-head)", fontSize: 18, fontWeight: 700 }}>AI Suggestions</h3>
+          <h3 style={{ fontFamily: "var(--font-head)", fontSize: 18, fontWeight: 700 }}>Smart Suggestions</h3>
           <span className="badge badge-purple">{suggestions.length} actions</span>
         </div>
 
