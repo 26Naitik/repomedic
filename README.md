@@ -50,7 +50,7 @@
 
 ---
 
-### 👾 Meet Our Diagnostic Mascots
+### 👾 Meet Our Diagnostic Mascots ###
 
 To make our dashboard experience more engaging, we designed custom developer medical robot mascots that float through the interface:
 
