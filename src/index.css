@@ -395,3 +395,69 @@ code, pre, .mono { font-family: var(--font-mono); }
     grid-template-columns: 1fr;
   }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════════
+   Knowledge Graph — React Flow dark-theme overrides
+   All rules scoped to .react-flow — zero conflict with existing design system.
+   ═══════════════════════════════════════════════════════════════════════════════ */
+
+.react-flow {
+  --xy-background-color:                         transparent;
+  --xy-node-background-color:                    rgba(15, 15, 26, 0.9);
+  --xy-node-border:                              1px solid rgba(255, 255, 255, 0.1);
+  --xy-node-border-radius:                       10px;
+  --xy-node-color:                               #f0f0ff;
+  --xy-edge-stroke:                              rgba(255, 255, 255, 0.15);
+  --xy-edge-stroke-width:                        1.5;
+  --xy-edge-label-background-color:              rgba(10, 10, 20, 0.85);
+  --xy-edge-label-color:                         #8b8ca8;
+  --xy-minimap-background-color:                 rgba(10, 10, 20, 0.9);
+  --xy-controls-background-color:                rgba(15, 15, 26, 0.92);
+  --xy-controls-button-background-color:         rgba(255, 255, 255, 0.05);
+  --xy-controls-button-background-color-hover:   rgba(255, 255, 255, 0.1);
+  --xy-controls-button-border-color:             rgba(255, 255, 255, 0.1);
+  --xy-controls-button-color:                    #8b8ca8;
+  --xy-controls-button-color-hover:              #f0f0ff;
+  --xy-selection-background-color:               rgba(124, 111, 255, 0.08);
+  --xy-selection-border:                         1px solid rgba(124, 111, 255, 0.4);
+}
+
+.react-flow__pane         { cursor: grab; }
+.react-flow__pane.dragging{ cursor: grabbing; }
+
+.react-flow__node {
+  box-shadow:    none !important;
+  border:        none !important;
+  background:    transparent !important;
+  border-radius: 0 !important;
+  padding:       0 !important;
+  font-family:   inherit;
+}
+
+.react-flow__edge-path {
+  stroke-linecap:  round;
+  stroke-linejoin: round;
+}
+
+.react-flow__edge.animated .react-flow__edge-path {
+  stroke-dasharray: 5 3;
+  animation: kg-dash 1.2s linear infinite;
+}
+@keyframes kg-dash { to { stroke-dashoffset: -8; } }
+
+.react-flow__controls-button {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06) !important;
+}
+.react-flow__controls-button svg { fill: currentColor; stroke: none; }
+
+.react-flow__selection {
+  background: rgba(124, 111, 255, 0.06);
+  border: 1px solid rgba(124, 111, 255, 0.35);
+}
+
+.react-flow__panel  { margin: 12px; }
+.react-flow__attribution { display: none; }
+
+/* ── KG utility ──────────────────────────────────────────────────────────── */
+.kg-highlight-node { filter: brightness(1.25) drop-shadow(0 0 8px rgba(124,111,255,0.5)); }
+.kg-dimmed-node    { opacity: 0.3; transition: opacity 0.2s; }
