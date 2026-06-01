@@ -7,6 +7,7 @@ import ArchitectureOverview from "./ArchitectureOverview";
 import SmartSuggestions from "./SmartSuggestions";
 import SecurityPanel from "./SecurityPanel";
 import CommitActivity from "./CommitActivity";
+import KnowledgeGraph from "./KnowledgeGraph";
 
 export default function Dashboard({ data, onReset }) {
   function handleExport() {
@@ -95,6 +96,7 @@ export default function Dashboard({ data, onReset }) {
 
         <TechStack techStack={data.techStack} />
         <ArchitectureOverview architecture={data.architecture} />
+        <KnowledgeGraph data={data} />
         <SmartSuggestions suggestions={data.smartSuggestions} />
       </div>
     </motion.div>

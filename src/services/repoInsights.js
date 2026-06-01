@@ -5,6 +5,8 @@
  * always produces similar scores.
  */
 
+import { buildGraphData } from './graphBuilder';
+
 // ── Deterministic pseudo-random seeded by a string ─────────────────────────
 function seed(str) {
   let h = 2166136261;
@@ -513,6 +515,9 @@ export function buildAnalysis(rawData) {
     vulnerabilities,
     commitActivity,
     codeMetrics,
+
+    // Knowledge Graph — structural dependency map
+    knowledgeGraph: buildGraphData(rawData),
 
     // Meta
     analyzedAt: new Date().toISOString(),
