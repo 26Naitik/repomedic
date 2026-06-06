@@ -220,6 +220,9 @@ Please review our [Contributing Guidelines](CONTRIBUTING.md) for more details.
 Distributed under the MIT License. See [LICENSE](LICENSE) for details.
 
 ---
+## Badge Test
+
+Testing GitHub Pair Extraordinaire badge.
 
 <div align="center">
   <h3>Show some love! ⭐</h3>
