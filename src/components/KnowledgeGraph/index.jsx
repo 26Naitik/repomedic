@@ -1,1 +1,1 @@
-export { default } from "./KnowledgeGraphPremium";
+export { default } from "./KnowledgeGraphClassic";
