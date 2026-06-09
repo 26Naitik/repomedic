@@ -2,10 +2,10 @@ import { motion } from "framer-motion";
 import { Shield, AlertTriangle, CheckCircle2 } from "lucide-react";
 
 const SEVERITY_MAP = {
-  CRITICAL: { color: "#ff1a4b", bg: "rgba(255,26,75,0.1)",  border: "rgba(255,26,75,0.25)",  label: "Critical" },
-  HIGH:     { color: "#ff5078", bg: "rgba(255,80,120,0.1)", border: "rgba(255,80,120,0.25)", label: "High"     },
-  MEDIUM:   { color: "#ff9a3c", bg: "rgba(255,154,60,0.1)", border: "rgba(255,154,60,0.25)", label: "Medium"   },
-  LOW:      { color: "#22d3ee", bg: "rgba(34,211,238,0.08)",border: "rgba(34,211,238,0.2)",  label: "Low"      },
+  CRITICAL: { color: "#B85C5C", bg: "rgba(184,92,92,0.1)",  border: "rgba(184,92,92,0.22)",  label: "Critical" },
+  HIGH:     { color: "#C15B5B", bg: "rgba(193,91,91,0.09)", border: "rgba(193,91,91,0.2)", label: "High"     },
+  MEDIUM:   { color: "#C98B2B", bg: "rgba(201,139,43,0.1)", border: "rgba(201,139,43,0.2)", label: "Medium"   },
+  LOW:      { color: "#C9A94A", bg: "rgba(201,169,74,0.08)",border: "rgba(201,169,74,0.2)",  label: "Low"      },
 };
 
 export default function SecurityPanel({ vulnerabilities }) {
@@ -23,7 +23,7 @@ export default function SecurityPanel({ vulnerabilities }) {
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
         <div style={{
           width: 32, height: 32, borderRadius: 8,
-          background: hasCritical ? "rgba(255,80,120,0.12)" : "rgba(0,255,163,0.1)",
+          background: hasCritical ? "rgba(184,92,92,0.12)" : "rgba(142,160,109,0.1)",
           display: "flex", alignItems: "center", justifyContent: "center",
         }}>
           <Shield size={16} color={hasCritical ? "var(--neon-red)" : "var(--neon-green)"} />

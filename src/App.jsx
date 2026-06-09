@@ -8,6 +8,7 @@ import OnboardingGuide from "./components/OnboardingGuide";
 import ErrorScreen from "./components/ErrorScreen";
 import { parseGitHubUrl, analyzeRepo, GHError } from "./services/githubApi";
 import { buildAnalysis } from "./services/repoInsights";
+import { theme } from "./theme";
 
 // App state machine: "idle" | "loading" | "results" | "error"
 export default function App() {
@@ -89,10 +90,10 @@ export default function App() {
 
   return (
     <div style={{ minHeight: "100vh", background: "var(--bg-base)", position: "relative" }}>
-      {/* Background glow orbs */}
-      <div className="orb orb-purple" />
-      <div className="orb orb-blue" />
-      {state !== "idle" && <div className="orb orb-cyan" />}
+      {/* Ambient background layers */}
+      <div className="orb orb-amber" />
+      <div className="orb orb-smoke" />
+      {state !== "idle" && <div className="orb orb-spot" />}
 
       <Navbar onReset={handleReset} hasResults={state === "results"} />
 
@@ -184,8 +185,8 @@ function FeatureGrid() {
           >
             <div style={{
               width: 44, height: 44, borderRadius: 12,
-              background: "rgba(124,111,255,0.1)",
-              border: "1px solid rgba(124,111,255,0.2)",
+              background: "rgba(244,197,66,0.08)",
+              border: "1px solid rgba(244,197,66,0.16)",
               display: "flex", alignItems: "center", justifyContent: "center",
               fontSize: 20, marginBottom: 14,
             }}>
@@ -205,7 +206,7 @@ function FeatureGrid() {
 // ── Footer ──────────────────────────────────────────────────────────────────
 function Footer() {
   return (
-    <footer style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "24px 0", background: "rgba(0,0,0,0.3)" }}>
+    <footer style={{ borderTop: `1px solid ${theme.colors.border}`, padding: "28px 0", background: "rgba(10,10,10,0.72)" }}>
       <div className="container" style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
           <div style={{ fontFamily: "var(--font-head)", fontWeight: 700, fontSize: 15, background: "var(--gradient-primary)", WebkitBackgroundClip: "text", backgroundClip: "text", WebkitTextFillColor: "transparent" }}>

@@ -9,7 +9,7 @@ const CATEGORY_COLORS = {
   Testing:     { bg: "rgba(194,19,37,0.1)",    border: "rgba(194,19,37,0.25)",  text: "#e74c3c" },
   Linting:     { bg: "rgba(75,50,195,0.12)",   border: "rgba(75,50,195,0.3)",   text: "#7b68ee" },
   DevOps:      { bg: "rgba(36,150,237,0.1)",   border: "rgba(36,150,237,0.25)", text: "#2496ed" },
-  "CI/CD":     { bg: "rgba(124,111,255,0.1)",  border: "rgba(124,111,255,0.25)",text: "#7c6fff" },
+  "CI/CD":     { bg: "rgba(244,197,66,0.08)",  border: "rgba(244,197,66,0.18)",text: "#F4C542" },
   Monorepo:    { bg: "rgba(255,108,199,0.1)",  border: "rgba(255,108,199,0.25)",text: "#ff6ec7" },
   "Package Mgr":{ bg:"rgba(246,146,32,0.1)",  border: "rgba(246,146,32,0.25)", text: "#f69220" },
   Deployment:  { bg: "rgba(255,255,255,0.06)", border: "rgba(255,255,255,0.2)", text: "#ffffff" },
@@ -97,7 +97,7 @@ export default function TechStack({ techStack }) {
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
         <div style={{
           width: 32, height: 32, borderRadius: 8,
-          background: "rgba(124,111,255,0.15)",
+          background: "rgba(244,197,66,0.12)",
           display: "flex", alignItems: "center", justifyContent: "center",
         }}>
           <Layers size={16} color="var(--neon-purple)" />

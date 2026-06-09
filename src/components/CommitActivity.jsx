@@ -31,7 +31,7 @@ export default function CommitActivity({ commitActivity }) {
       style={{ padding: "28px", marginBottom: 0 }}
     >
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
-        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(59,130,246,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(244,197,66,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <BarChart2 size={16} color="var(--neon-blue)" />
         </div>
         <h3 style={{ fontFamily: "var(--font-head)", fontSize: 18, fontWeight: 700 }}>Commit Activity</h3>
@@ -56,11 +56,11 @@ export default function CommitActivity({ commitActivity }) {
                   width: "100%",
                   borderRadius: "4px 4px 2px 2px",
                   background: isLatest
-                    ? "linear-gradient(180deg, #7c6fff 0%, #3b82f6 100%)"
+                    ? "linear-gradient(180deg, #F4C542 0%, #D4A514 100%)"
                     : week.commits > avg * 1.3
-                    ? "linear-gradient(180deg, rgba(124,111,255,0.8) 0%, rgba(59,130,246,0.5) 100%)"
-                    : "linear-gradient(180deg, rgba(124,111,255,0.4) 0%, rgba(59,130,246,0.2) 100%)",
-                  boxShadow: isLatest ? "0 0 12px rgba(124,111,255,0.4)" : "none",
+                    ? "linear-gradient(180deg, rgba(244,197,66,0.78) 0%, rgba(212,165,20,0.5) 100%)"
+                    : "linear-gradient(180deg, rgba(244,197,66,0.34) 0%, rgba(212,165,20,0.16) 100%)",
+                  boxShadow: isLatest ? "0 10px 18px rgba(0,0,0,0.28)" : "none",
                   minHeight: week.commits > 0 ? 4 : 2,
                   cursor: "default",
                   transition: "filter 0.2s",

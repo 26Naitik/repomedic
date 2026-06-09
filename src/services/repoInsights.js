@@ -157,7 +157,7 @@ const LANG_META = {
 
 export function enrichTechStack(techStack) {
   return techStack.slice(0, 12).map((t) => {
-    const meta = LANG_META[t.name] || { category: "Other", color: "#7c6fff" };
+    const meta = LANG_META[t.name] || { category: "Other", color: "#F4C542" };
     return {
       ...t,
       category: meta.category,

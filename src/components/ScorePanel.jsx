@@ -139,8 +139,8 @@ function RiskGauge({ score }) {
           />
         </div>
         <div style={{ display: "flex", justifyContent: "space-between", marginTop: 5 }}>
-          <span style={{ fontSize: 10, color: "var(--neon-green)" }}>Safe</span>
-          <span style={{ fontSize: 10, color: "var(--neon-red)" }}>Critical</span>
+          <span style={{ fontSize: 10, color: "var(--text-muted)" }}>Stable</span>
+          <span style={{ fontSize: 10, color: "var(--text-muted)" }}>Critical</span>
         </div>
       </div>
     </motion.div>

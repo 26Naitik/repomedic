@@ -75,12 +75,12 @@ export default function Dashboard({ data, onReset }) {
           style={{
             display: "inline-flex", alignItems: "center", gap: 8,
             padding: "7px 16px", borderRadius: 100,
-            background: "rgba(0,255,163,0.07)",
-            border: "1px solid rgba(0,255,163,0.2)",
+            background: "rgba(142,160,109,0.08)",
+            border: "1px solid rgba(142,160,109,0.2)",
             marginBottom: 20, fontSize: 12, color: "var(--neon-green)", fontWeight: 600,
           }}
         >
-          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--neon-green)", display: "inline-block", boxShadow: "0 0 6px var(--neon-green)" }} />
+          <span style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--neon-green)", display: "inline-block" }} />
           Live data from GitHub API · Smart diagnostics compiled
         </motion.div>
 
@@ -96,7 +96,7 @@ export default function Dashboard({ data, onReset }) {
 
         <TechStack techStack={data.techStack} />
         <ArchitectureOverview architecture={data.architecture} />
-        <KnowledgeGraph data={data} />
+        <KnowledgeGraph key={data.repoName || data.analyzedAt || "knowledge-graph"} data={data} />
         <SmartSuggestions suggestions={data.smartSuggestions} />
       </div>
     </motion.div>

@@ -6,7 +6,7 @@
 import { motion, AnimatePresence } from 'framer-motion';
 import {
   X, AlertTriangle, CheckCircle2, AlertCircle,
-  ArrowUpRight, ArrowDownLeft, GitMerge, Zap,
+  ArrowUpRight, ArrowDownLeft, Zap,
   Code2, Layers, Link,
 } from 'lucide-react';
 import { RISK_COLORS, ROLE_COLORS } from '../../services/graphBuilder';
@@ -53,7 +53,7 @@ function RiskBadge({ level }) {
 }
 
 function CouplingMeter({ score, label }) {
-  const color = score >= 60 ? '#ff5078' : score >= 30 ? '#ff9a3c' : '#00ffa3';
+  const color = score >= 60 ? '#B85C5C' : score >= 30 ? '#C98B2B' : '#8EA06D';
   return (
     <div>
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
@@ -147,7 +147,7 @@ export default function ImpactPanel({ impact, onClose }) {
 
   const nodeLabel  = node.data.label || node.data.repoName || node.data.name || node.data.login || node.id;
   const roleLabel  = ROLE_LABELS[node.type === 'file' ? role : node.type] || 'Node';
-  const roleColor  = node.type === 'file' ? (ROLE_COLORS[role] || '#7c6fff') : '#7c6fff';
+  const roleColor  = node.type === 'file' ? (ROLE_COLORS[role] || '#F4C542') : '#F4C542';
 
   const isFileNode = node.type === 'file';
 
@@ -161,9 +161,9 @@ export default function ImpactPanel({ impact, onClose }) {
         style={{
           position:   'absolute', top: 0, right: 0, bottom: 0,
           width:      360, zIndex: 20,
-          background: 'rgba(10,10,20,0.95)',
+          background: 'rgba(17,17,17,0.96)',
           backdropFilter: 'blur(24px)',
-          borderLeft: '1px solid rgba(255,255,255,0.08)',
+          borderLeft: '1px solid rgba(244,197,66,0.12)',
           overflowY:  'auto',
           display:    'flex', flexDirection: 'column',
         }}
@@ -171,9 +171,9 @@ export default function ImpactPanel({ impact, onClose }) {
         {/* Header */}
         <div style={{
           padding:      '20px 20px 16px',
-          borderBottom: '1px solid rgba(255,255,255,0.07)',
+          borderBottom: '1px solid rgba(244,197,66,0.1)',
           position:     'sticky', top: 0, zIndex: 1,
-          background:   'rgba(10,10,20,0.98)',
+          background:   'rgba(17,17,17,0.98)',
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: 8 }}>
             <div style={{ flex: 1, minWidth: 0 }}>
@@ -195,13 +195,13 @@ export default function ImpactPanel({ impact, onClose }) {
             <button
               onClick={onClose}
               style={{
-                background: 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)',
+                background: 'rgba(255,255,255,0.04)', border: '1px solid rgba(244,197,66,0.12)',
                 borderRadius: 8, width: 30, height: 30, cursor: 'pointer', color: '#8b8ca8',
                 display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0,
                 transition: 'all 0.2s',
               }}
-              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.1)'; e.currentTarget.style.color = '#f0f0ff'; }}
-              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.06)'; e.currentTarget.style.color = '#8b8ca8'; }}
+              onMouseEnter={e => { e.currentTarget.style.background = 'rgba(244,197,66,0.06)'; e.currentTarget.style.color = '#f0f0ff'; }}
+              onMouseLeave={e => { e.currentTarget.style.background = 'rgba(255,255,255,0.04)'; e.currentTarget.style.color = '#8b8ca8'; }}
             >
               <X size={14} />
             </button>
@@ -214,7 +214,7 @@ export default function ImpactPanel({ impact, onClose }) {
                 <span style={{
                   display: 'inline-flex', alignItems: 'center', gap: 4,
                   padding: '4px 10px', borderRadius: 100, fontSize: 11, fontWeight: 600,
-                  background: 'rgba(59,130,246,0.1)', border: '1px solid rgba(59,130,246,0.25)', color: '#3b82f6',
+                  background: 'rgba(244,197,66,0.1)', border: '1px solid rgba(244,197,66,0.25)', color: '#F4C542',
                 }}>
                   <Code2 size={11} /> {node.data.language}
                 </span>
@@ -236,7 +236,7 @@ export default function ImpactPanel({ impact, onClose }) {
             <div>
               <div style={{
                 display: 'flex', alignItems: 'center', gap: 6,
-                fontSize: 11, fontWeight: 700, color: '#ff9a3c',
+                fontSize: 11, fontWeight: 700, color: '#C98B2B',
                 letterSpacing: '0.06em', textTransform: 'uppercase', marginBottom: 10,
               }}>
                 <Zap size={12} /> AI Impact Prediction
@@ -244,7 +244,7 @@ export default function ImpactPanel({ impact, onClose }) {
               <div style={{
                 fontSize:   12.5, color: '#a0a0c0', lineHeight: 1.7,
                 padding:    '12px 14px', borderRadius: 10,
-                background: 'rgba(255,154,60,0.05)', border: '1px solid rgba(255,154,60,0.15)',
+                background: 'rgba(201,139,43,0.05)', border: '1px solid rgba(201,139,43,0.15)',
               }}>
                 {impactPrediction}
               </div>
@@ -259,14 +259,14 @@ export default function ImpactPanel({ impact, onClose }) {
                 title="Files that depend on this"
                 icon={<ArrowUpRight size={12} />}
                 emptyText="No structural dependents detected in this graph."
-                color="#ff5078"
+                color="#B85C5C"
               />
               <DependencyList
                 items={dependencies}
                 title="Files this depends on"
                 icon={<ArrowDownLeft size={12} />}
                 emptyText="No structural dependencies detected."
-                color="#22d3ee"
+                color="#C9A94A"
               />
             </>
           )}
@@ -294,27 +294,27 @@ export default function ImpactPanel({ impact, onClose }) {
             <div style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
               <div style={{
                 padding: '14px', borderRadius: 10,
-                background: 'rgba(255,154,60,0.06)', border: '1px solid rgba(255,154,60,0.2)',
+                background: 'rgba(201,139,43,0.06)', border: '1px solid rgba(201,139,43,0.2)',
                 display: 'flex', alignItems: 'center', gap: 12,
               }}>
                 <img
                   src={node.data.avatarUrl}
                   alt={node.data.login}
-                  style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid rgba(255,154,60,0.4)' }}
+                  style={{ width: 48, height: 48, borderRadius: '50%', border: '2px solid rgba(201,139,43,0.4)' }}
                   onError={e => { e.target.src = `https://ui-avatars.com/api/?name=${node.data.login}&background=1a1a2e&color=ff9a3c&size=48`; }}
                 />
                 <div>
                   <div style={{ fontFamily: 'var(--font-head)', fontSize: 15, fontWeight: 700, color: '#f0f0ff' }}>
                     @{node.data.login}
                   </div>
-                  <div style={{ fontSize: 12, color: '#ff9a3c', fontWeight: 600, marginTop: 3 }}>
+                  <div style={{ fontSize: 12, color: '#C98B2B', fontWeight: 600, marginTop: 3 }}>
                     {node.data.contributions.toLocaleString()} contributions
                   </div>
                   <a
                     href={`https://github.com/${node.data.login}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ fontSize: 11, color: '#7c6fff', display: 'flex', alignItems: 'center', gap: 3, marginTop: 4, textDecoration: 'none' }}
+                    style={{ fontSize: 11, color: '#F4C542', display: 'flex', alignItems: 'center', gap: 3, marginTop: 4, textDecoration: 'none' }}
                   >
                     <Link size={10} /> View on GitHub
                   </a>
@@ -344,7 +344,7 @@ export default function ImpactPanel({ impact, onClose }) {
           {node.type === 'directory' && (
             <div style={{
               padding: '14px', borderRadius: 10,
-              background: 'rgba(34,211,238,0.06)', border: '1px solid rgba(34,211,238,0.2)',
+                background: 'rgba(244,197,66,0.06)', border: '1px solid rgba(244,197,66,0.2)',
             }}>
               <div style={{ fontSize: 11, color: '#8b8ca8', fontWeight: 600, marginBottom: 8, textTransform: 'uppercase', letterSpacing: '0.06em' }}>
                 Directory Info
@@ -352,7 +352,7 @@ export default function ImpactPanel({ impact, onClose }) {
               <div style={{ display: 'flex', flexDirection: 'column', gap: 8 }}>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ fontSize: 12, color: '#8b8ca8' }}>Role</span>
-                  <span style={{ fontSize: 12, color: '#22d3ee', fontWeight: 600 }}>{node.data.role}</span>
+                  <span style={{ fontSize: 12, color: '#C9A94A', fontWeight: 600 }}>{node.data.role}</span>
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'space-between' }}>
                   <span style={{ fontSize: 12, color: '#8b8ca8' }}>Files</span>
