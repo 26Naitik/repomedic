@@ -7,12 +7,12 @@
 [![MIT License](https://img.shields.io/github/license/26Naitik/repomedic?color=f5c518&style=flat-square)](LICENSE)
 [![GitHub Stars](https://img.shields.io/github/stars/26Naitik/repomedic?color=f5c518&style=flat-square)](https://github.com/26Naitik/repomedic/stargazers)
 [![GitHub Contributors](https://img.shields.io/github/contributors/26Naitik/repomedic?color=f5c518&style=flat-square)](https://github.com/26Naitik/repomedic/graphs/contributors)
-[![Vercel Deployment](https://img.shields.io/badge/deployed%20on-vercel-f5c518?logo=vercel&logoColor=black&style=flat-square)](https://repomedic.vercel.app)
-[![Live Demo](https://img.shields.io/badge/live%20demo-repomedic.vercel.app-111111?style=flat-square&logo=vercel&logoColor=f5c518)](https://repomedic.vercel.app)
+[![Vercel Deployment](https://img.shields.io/badge/deployed%20on-vercel-f5c518?logo=vercel&logoColor=black&style=flat-square)](https://repomedic-ai-omega.vercel.app)
+[![Live Demo](https://img.shields.io/badge/live%20demo-repomedic--ai--omega.vercel.app-111111?style=flat-square&logo=vercel&logoColor=f5c518)](https://repomedic-ai-omega.vercel.app)
 
 **RepoMedic** is a beautiful, premium, and zero-setup repository health dashboard. Paste any public GitHub URL or shorthand `owner/repo` to instantly generate composite risk scores, technology stack fingerprints, structural architecture maps, commit activity metrics, and prioritized diagnostic recommendations — all calculated client-side in under 10 seconds.
 
-**[→ Explore the Live Demo](https://repomedic.vercel.app)**
+**[→ Explore the Live Demo](https://repomedic-ai-omega.vercel.app)**
 
 </div>
 
