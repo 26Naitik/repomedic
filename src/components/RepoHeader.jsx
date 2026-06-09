@@ -20,7 +20,7 @@ export default function RepoHeader({ data }) {
       <div style={{
         position: "absolute", top: 0, right: 0,
         width: 320, height: 220,
-        background: "radial-gradient(ellipse at top right, rgba(124,111,255,0.08) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse at top right, rgba(244,197,66,0.08) 0%, transparent 72%)",
         pointerEvents: "none",
       }} />
 
@@ -33,9 +33,9 @@ export default function RepoHeader({ data }) {
             alt={data.ownerLogin}
             style={{
               width: 56, height: 56, borderRadius: 14,
-              border: "2px solid rgba(124,111,255,0.4)",
+              border: "2px solid rgba(244,197,66,0.24)",
               objectFit: "cover",
-              boxShadow: "0 0 16px rgba(124,111,255,0.25)",
+              boxShadow: "0 12px 20px rgba(0,0,0,0.28)",
             }}
             onError={e => { e.target.style.display = "none"; }}
           />
@@ -109,7 +109,7 @@ export default function RepoHeader({ data }) {
       {/* Stats grid */}
       <div style={{ display: "flex", gap: 0, flexWrap: "wrap" }}>
         {[
-          { icon: <Star size={14} />,        value: fmt(data.stars),       label: "Stars",       color: "#f7b731" },
+          { icon: <Star size={14} />,        value: fmt(data.stars),       label: "Stars",       color: "#D4A514" },
           { icon: <GitFork size={14} />,     value: fmt(data.forks),       label: "Forks",       color: "var(--neon-cyan)" },
           { icon: <Eye size={14} />,         value: fmt(data.watchers),    label: "Watchers",    color: "var(--neon-blue)" },
           { icon: <AlertCircle size={14} />, value: fmt(data.openIssues),  label: "Open Issues", color: "var(--neon-orange)" },
@@ -144,8 +144,8 @@ export default function RepoHeader({ data }) {
         <div style={{
           marginTop: 18,
           padding: "14px 18px",
-          background: "rgba(124,111,255,0.05)",
-          border: "1px solid rgba(124,111,255,0.15)",
+          background: "rgba(244,197,66,0.05)",
+          border: "1px solid rgba(244,197,66,0.12)",
           borderRadius: 12,
         }}>
           <div style={{ fontSize: 11, fontWeight: 700, color: "var(--neon-purple)", letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: 7, display: "flex", alignItems: "center", gap: 6 }}>

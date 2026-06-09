@@ -20,7 +20,7 @@ export default function ArchitectureOverview({ architecture }) {
     >
       {/* Header */}
       <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24, flexWrap: "wrap" }}>
-        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(34,211,238,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <div style={{ width: 32, height: 32, borderRadius: 8, background: "rgba(244,197,66,0.12)", display: "flex", alignItems: "center", justifyContent: "center" }}>
           <GitBranch size={16} color="var(--neon-cyan)" />
         </div>
         <h3 style={{ fontFamily: "var(--font-head)", fontSize: 18, fontWeight: 700 }}>Architecture Overview</h3>
@@ -45,8 +45,8 @@ export default function ArchitectureOverview({ architecture }) {
               style={{
                 display: "flex", alignItems: "center", gap: 5,
                 padding: "6px 14px", borderRadius: 100,
-                background: active ? `rgba(124,111,255,0.12)` : "rgba(255,255,255,0.04)",
-                border: `1px solid ${active ? "rgba(124,111,255,0.35)" : "rgba(255,255,255,0.07)"}`,
+                background: active ? `rgba(244,197,66,0.1)` : "rgba(255,255,255,0.03)",
+                border: `1px solid ${active ? "rgba(244,197,66,0.26)" : "rgba(244,197,66,0.1)"}`,
                 fontSize: 12, fontWeight: 600,
                 color: active ? "var(--neon-purple)" : "var(--text-muted)",
                 transition: "all 0.2s",
@@ -81,12 +81,12 @@ export default function ArchitectureOverview({ architecture }) {
                   style={{
                     display: "flex", alignItems: "center", gap: 10,
                     padding: "9px 14px", borderRadius: 10,
-                    background: "rgba(255,255,255,0.025)",
-                    border: "1px solid rgba(255,255,255,0.06)",
+                    background: "rgba(255,255,255,0.02)",
+                    border: "1px solid rgba(244,197,66,0.08)",
                     transition: "all 0.2s", cursor: "default",
                   }}
-                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(34,211,238,0.06)"; e.currentTarget.style.borderColor = "rgba(34,211,238,0.2)"; }}
-                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.025)"; e.currentTarget.style.borderColor = "rgba(255,255,255,0.06)"; }}
+                  onMouseEnter={e => { e.currentTarget.style.background = "rgba(244,197,66,0.05)"; e.currentTarget.style.borderColor = "rgba(244,197,66,0.18)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.02)"; e.currentTarget.style.borderColor = "rgba(244,197,66,0.08)"; }}
                 >
                   <Terminal size={13} color="var(--neon-cyan)" style={{ flexShrink: 0 }} />
                   <span style={{ fontFamily: "var(--font-mono)", fontSize: 13, color: "var(--text-primary)", fontWeight: 500 }}>
@@ -127,7 +127,7 @@ export default function ArchitectureOverview({ architecture }) {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.07 + 0.3 }}
-                  style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", borderRadius: 10, background: "rgba(0,255,163,0.05)", border: "1px solid rgba(0,255,163,0.15)" }}
+                  style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", borderRadius: 10, background: "rgba(142,160,109,0.05)", border: "1px solid rgba(142,160,109,0.15)" }}
                 >
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--neon-green)", marginTop: 5, flexShrink: 0 }} />
                   <span style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.5 }}>{s}</span>
@@ -147,7 +147,7 @@ export default function ArchitectureOverview({ architecture }) {
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: i * 0.07 + 0.5 }}
-                  style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", borderRadius: 10, background: "rgba(255,154,60,0.05)", border: "1px solid rgba(255,154,60,0.15)" }}
+                  style={{ display: "flex", alignItems: "flex-start", gap: 10, padding: "10px 14px", borderRadius: 10, background: "rgba(201,139,43,0.05)", border: "1px solid rgba(201,139,43,0.15)" }}
                 >
                   <div style={{ width: 6, height: 6, borderRadius: "50%", background: "var(--neon-orange)", marginTop: 5, flexShrink: 0 }} />
                   <span style={{ fontSize: 13, color: "var(--text-secondary)", lineHeight: 1.5 }}>{c}</span>

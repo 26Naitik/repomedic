@@ -46,8 +46,8 @@ export default function OnboardingGuide() {
           position: "relative",
           borderRadius: 20,
           overflow: "hidden",
-          background: "linear-gradient(135deg, rgba(124,111,255,0.08) 0%, rgba(59,130,246,0.06) 50%, rgba(34,211,238,0.05) 100%)",
-          border: "1px solid rgba(124,111,255,0.2)",
+          background: "linear-gradient(135deg, rgba(244,197,66,0.08) 0%, rgba(255,255,255,0.02) 60%, rgba(255,255,255,0.015) 100%)",
+          border: "1px solid rgba(244,197,66,0.16)",
           padding: "28px 32px",
           marginBottom: 40,
         }}
@@ -56,7 +56,7 @@ export default function OnboardingGuide() {
         <div style={{
           position: "absolute", right: -60, top: -60,
           width: 300, height: 300,
-          background: "radial-gradient(circle, rgba(124,111,255,0.12) 0%, transparent 70%)",
+          background: "radial-gradient(circle, rgba(244,197,66,0.08) 0%, transparent 72%)",
           pointerEvents: "none",
         }} />
 
@@ -65,14 +65,14 @@ export default function OnboardingGuide() {
           onClick={() => setVisible(false)}
           style={{
             position: "absolute", top: 16, right: 16,
-            background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)",
+            background: "rgba(255,255,255,0.04)", border: "1px solid rgba(244,197,66,0.12)",
             borderRadius: 8, width: 28, height: 28,
             display: "flex", alignItems: "center", justifyContent: "center",
             cursor: "pointer", color: "var(--text-muted)",
             transition: "all 0.2s",
           }}
-          onMouseEnter={e => { e.currentTarget.style.background = "rgba(255,255,255,0.1)"; }}
-          onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.06)"; }}
+          onMouseEnter={e => { e.currentTarget.style.background = "rgba(244,197,66,0.06)"; }}
+          onMouseLeave={e => { e.currentTarget.style.background = "rgba(255,255,255,0.04)"; }}
           aria-label="Dismiss onboarding guide"
         >
           <X size={14} />
@@ -82,7 +82,7 @@ export default function OnboardingGuide() {
         <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 24 }}>
           <div style={{
             width: 32, height: 32, borderRadius: 8,
-            background: "rgba(124,111,255,0.15)",
+            background: "rgba(244,197,66,0.12)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <BookOpen size={16} color="var(--neon-purple)" />
@@ -107,8 +107,8 @@ export default function OnboardingGuide() {
               style={{
                 padding: "16px",
                 borderRadius: 14,
-                background: activeStep === i ? "rgba(124,111,255,0.12)" : "rgba(255,255,255,0.03)",
-                border: `1px solid ${activeStep === i ? "rgba(124,111,255,0.4)" : "rgba(255,255,255,0.06)"}`,
+                background: activeStep === i ? "rgba(244,197,66,0.08)" : "rgba(255,255,255,0.02)",
+                border: `1px solid ${activeStep === i ? "rgba(244,197,66,0.22)" : "rgba(244,197,66,0.08)"}`,
                 cursor: "pointer",
                 transition: "all 0.2s",
               }}
@@ -117,7 +117,7 @@ export default function OnboardingGuide() {
               <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 10 }}>
                 <div style={{
                   width: 28, height: 28, borderRadius: 8, fontSize: 14,
-                  background: activeStep === i ? "rgba(124,111,255,0.2)" : "rgba(255,255,255,0.06)",
+                  background: activeStep === i ? "rgba(244,197,66,0.16)" : "rgba(255,255,255,0.05)",
                   display: "flex", alignItems: "center", justifyContent: "center",
                 }}>
                   {s.icon}

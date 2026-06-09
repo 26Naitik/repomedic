@@ -5,14 +5,14 @@
 
 import { memo } from 'react';
 import { Handle, Position } from '@xyflow/react';
-import { ROLE_COLORS, RISK_COLORS, getLanguage } from '../../services/graphBuilder';
+import { ROLE_COLORS, RISK_COLORS } from '../../services/graphBuilder';
 
 // ── Shared handle style ───────────────────────────────────────────────────────
 const HANDLE_STYLE = {
   width: 8,
   height: 8,
-  background: 'rgba(124,111,255,0.6)',
-  border: '1.5px solid rgba(124,111,255,0.9)',
+  background: 'rgba(244,197,66,0.45)',
+  border: '1.5px solid rgba(244,197,66,0.8)',
 };
 
 // ── Role icon map ─────────────────────────────────────────────────────────────
@@ -36,17 +36,17 @@ const ROLE_ICONS = {
 export const RepoRootNode = memo(({ data, selected }) => (
   <div style={{
     background:    selected
-      ? 'linear-gradient(145deg, rgba(124,111,255,0.2) 0%, rgba(59,130,246,0.15) 100%)'
-      : 'linear-gradient(145deg, rgba(124,111,255,0.12) 0%, rgba(59,130,246,0.08) 100%)',
-    border:        `2px solid ${selected ? 'rgba(124,111,255,0.8)' : 'rgba(124,111,255,0.4)'}`,
+      ? 'linear-gradient(145deg, rgba(244,197,66,0.18) 0%, rgba(212,165,20,0.12) 100%)'
+      : 'linear-gradient(145deg, rgba(244,197,66,0.08) 0%, rgba(212,165,20,0.05) 100%)',
+    border:        `2px solid ${selected ? 'rgba(244,197,66,0.8)' : 'rgba(244,197,66,0.35)'}`,
     borderRadius:  18,
     padding:       '18px 22px',
     minWidth:      200,
     maxWidth:      240,
     backdropFilter: 'blur(24px)',
     boxShadow:     selected
-      ? '0 0 32px rgba(124,111,255,0.4), 0 8px 32px rgba(0,0,0,0.5)'
-      : '0 0 20px rgba(124,111,255,0.15), 0 4px 24px rgba(0,0,0,0.5)',
+      ? '0 14px 28px rgba(0,0,0,0.42)'
+      : '0 10px 22px rgba(0,0,0,0.36)',
     transition:    'all 0.2s',
     cursor:        'pointer',
     position:      'relative',
@@ -54,7 +54,7 @@ export const RepoRootNode = memo(({ data, selected }) => (
     {/* Glow top border */}
     <div style={{
       position:   'absolute', top: 0, left: '20%', right: '20%', height: 2,
-      background: 'linear-gradient(90deg, transparent, rgba(124,111,255,0.8), transparent)',
+      background: 'linear-gradient(90deg, transparent, rgba(244,197,66,0.8), transparent)',
       borderRadius: '0 0 4px 4px',
     }} />
 
@@ -63,7 +63,7 @@ export const RepoRootNode = memo(({ data, selected }) => (
         <img
           src={data.ownerAvatar}
           alt={data.owner}
-          style={{ width: 32, height: 32, borderRadius: 8, border: '1.5px solid rgba(124,111,255,0.4)', flexShrink: 0 }}
+          style={{ width: 32, height: 32, borderRadius: 8, border: '1.5px solid rgba(244,197,66,0.35)', flexShrink: 0 }}
           onError={e => { e.target.style.display = 'none'; }}
         />
       )}
@@ -75,7 +75,7 @@ export const RepoRootNode = memo(({ data, selected }) => (
         }}>
           {data.repoName}
         </div>
-        <div style={{ fontSize: 10, color: 'rgba(124,111,255,0.9)', fontWeight: 600, marginTop: 2 }}>
+        <div style={{ fontSize: 10, color: 'rgba(244,197,66,0.88)', fontWeight: 600, marginTop: 2 }}>
           Repository Root
         </div>
       </div>
@@ -85,8 +85,8 @@ export const RepoRootNode = memo(({ data, selected }) => (
       {data.language && (
         <span style={{
           fontSize: 10, fontWeight: 600, padding: '2px 7px', borderRadius: 100,
-          background: 'rgba(59,130,246,0.15)', border: '1px solid rgba(59,130,246,0.3)',
-          color: '#3b82f6',
+          background: 'rgba(244,197,66,0.12)', border: '1px solid rgba(244,197,66,0.22)',
+          color: '#F4C542',
         }}>
           {data.language}
         </span>
@@ -94,7 +94,7 @@ export const RepoRootNode = memo(({ data, selected }) => (
       <span style={{
         fontSize: 10, fontWeight: 600, padding: '2px 7px', borderRadius: 100,
         background: 'rgba(247,183,49,0.1)', border: '1px solid rgba(247,183,49,0.3)',
-        color: '#f7b731',
+          color: '#F4C542',
       }}>
         ⭐ {data.stars >= 1000 ? (data.stars / 1000).toFixed(1) + 'k' : data.stars}
       </span>
@@ -112,15 +112,15 @@ RepoRootNode.displayName = 'RepoRootNode';
 export const DirectoryNode = memo(({ data, selected }) => (
   <div style={{
     background:    selected
-      ? 'linear-gradient(145deg, rgba(34,211,238,0.15) 0%, rgba(59,130,246,0.1) 100%)'
-      : 'linear-gradient(145deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.03) 100%)',
-    border:        `1.5px solid ${selected ? 'rgba(34,211,238,0.7)' : 'rgba(255,255,255,0.12)'}`,
+      ? 'linear-gradient(145deg, rgba(244,197,66,0.14) 0%, rgba(201,169,74,0.1) 100%)'
+      : 'linear-gradient(145deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.02) 100%)',
+    border:        `1.5px solid ${selected ? 'rgba(244,197,66,0.65)' : 'rgba(244,197,66,0.12)'}`,
     borderRadius:  14,
     padding:       '14px 16px',
     minWidth:      160,
     maxWidth:      200,
     backdropFilter: 'blur(20px)',
-    boxShadow:     selected ? '0 0 20px rgba(34,211,238,0.25)' : '0 2px 16px rgba(0,0,0,0.4)',
+    boxShadow:     selected ? '0 12px 22px rgba(0,0,0,0.34)' : '0 2px 14px rgba(0,0,0,0.32)',
     transition:    'all 0.2s',
     cursor:        'pointer',
   }}>
@@ -134,7 +134,7 @@ export const DirectoryNode = memo(({ data, selected }) => (
         }}>
           {data.label}
         </div>
-        <div style={{ fontSize: 10, color: 'rgba(34,211,238,0.8)', fontWeight: 500, marginTop: 1 }}>
+        <div style={{ fontSize: 10, color: 'rgba(244,197,66,0.78)', fontWeight: 500, marginTop: 1 }}>
           {data.role}
         </div>
       </div>
@@ -148,9 +148,9 @@ export const DirectoryNode = memo(({ data, selected }) => (
       </span>
       <span style={{
         fontSize: 9, fontWeight: 700, padding: '1px 6px', borderRadius: 100,
-        background: data.collapsed ? 'rgba(34,211,238,0.1)' : 'rgba(0,255,163,0.1)',
-        border:     data.collapsed ? '1px solid rgba(34,211,238,0.3)' : '1px solid rgba(0,255,163,0.3)',
-        color:      data.collapsed ? '#22d3ee' : '#00ffa3',
+        background: data.collapsed ? 'rgba(244,197,66,0.1)' : 'rgba(142,160,109,0.1)',
+        border:     data.collapsed ? '1px solid rgba(244,197,66,0.24)' : '1px solid rgba(142,160,109,0.24)',
+        color:      data.collapsed ? '#F4C542' : '#8EA06D',
         textTransform: 'uppercase', letterSpacing: '0.05em',
       }}>
         {data.collapsed ? 'Click to expand' : 'Expanded'}
@@ -174,15 +174,15 @@ export const FileNode = memo(({ data, selected }) => {
   return (
     <div style={{
       background:    selected
-        ? `linear-gradient(145deg, ${roleColor}25 0%, rgba(0,0,0,0.4) 100%)`
-        : `linear-gradient(145deg, ${roleColor}12 0%, rgba(0,0,0,0.4) 100%)`,
+        ? `linear-gradient(145deg, ${roleColor}22 0%, rgba(0,0,0,0.4) 100%)`
+          : `linear-gradient(145deg, ${roleColor}10 0%, rgba(0,0,0,0.4) 100%)`,
       border:        `1.5px solid ${selected ? roleColor + 'cc' : roleColor + '40'}`,
       borderRadius:  10,
       padding:       '10px 13px',
       minWidth:      140,
       maxWidth:      180,
       backdropFilter: 'blur(20px)',
-      boxShadow:     selected ? `0 0 16px ${roleColor}40` : '0 2px 12px rgba(0,0,0,0.4)',
+      boxShadow:     selected ? '0 12px 20px rgba(0,0,0,0.34)' : '0 2px 12px rgba(0,0,0,0.36)',
       transition:    'all 0.2s',
       cursor:        'pointer',
       position:      'relative',
@@ -212,7 +212,7 @@ export const FileNode = memo(({ data, selected }) => {
       <div style={{ display: 'flex', alignItems: 'center', gap: 5 }}>
         <span style={{
           fontSize: 9, fontWeight: 700, padding: '1px 6px', borderRadius: 100,
-          background: roleColor + '20', border: `1px solid ${roleColor}40`,
+          background: roleColor + '18', border: `1px solid ${roleColor}32`,
           color: roleColor, textTransform: 'uppercase', letterSpacing: '0.05em',
         }}>
           {data.role}
@@ -237,21 +237,21 @@ FileNode.displayName = 'FileNode';
 export const LanguageNode = memo(({ data, selected }) => (
   <div style={{
     background:    selected
-      ? `${data.color}22`
-      : `${data.color}12`,
-    border:        `1.5px solid ${selected ? data.color + 'cc' : data.color + '45'}`,
+      ? `${data.color}20`
+      : `${data.color}10`,
+    border:        `1.5px solid ${selected ? data.color + 'c0' : data.color + '40'}`,
     borderRadius:  12,
     padding:       '12px 16px',
     minWidth:      140,
     backdropFilter: 'blur(20px)',
-    boxShadow:     selected ? `0 0 20px ${data.color}35` : '0 2px 12px rgba(0,0,0,0.4)',
+    boxShadow:     selected ? '0 12px 20px rgba(0,0,0,0.34)' : '0 2px 12px rgba(0,0,0,0.36)',
     transition:    'all 0.2s',
     cursor:        'pointer',
     textAlign:     'center',
   }}>
     <div style={{
       width: 32, height: 32, borderRadius: '50%',
-      background: data.color + '25', border: `2px solid ${data.color}55`,
+      background: data.color + '20', border: `2px solid ${data.color}45`,
       display: 'flex', alignItems: 'center', justifyContent: 'center',
       margin: '0 auto 8px', fontSize: 14, fontWeight: 800,
       color: data.color, fontFamily: 'var(--font-head)',
@@ -321,13 +321,13 @@ PatternNode.displayName = 'PatternNode';
 // ── Contributor Node ──────────────────────────────────────────────────────────
 export const ContributorNode = memo(({ data, selected }) => (
   <div style={{
-    background:    selected ? 'rgba(255,154,60,0.18)' : 'rgba(255,154,60,0.08)',
-    border:        `1.5px solid ${selected ? 'rgba(255,154,60,0.8)' : 'rgba(255,154,60,0.3)'}`,
+    background:    selected ? 'rgba(201,139,43,0.18)' : 'rgba(201,139,43,0.08)',
+    border:        `1.5px solid ${selected ? 'rgba(201,139,43,0.8)' : 'rgba(201,139,43,0.3)'}`,
     borderRadius:  12,
     padding:       '11px 14px',
     minWidth:      140,
     backdropFilter: 'blur(20px)',
-    boxShadow:     selected ? '0 0 18px rgba(255,154,60,0.25)' : '0 2px 12px rgba(0,0,0,0.4)',
+    boxShadow:     selected ? '0 12px 20px rgba(0,0,0,0.34)' : '0 2px 12px rgba(0,0,0,0.36)',
     transition:    'all 0.2s',
     cursor:        'pointer',
     display:       'flex',
@@ -339,7 +339,7 @@ export const ContributorNode = memo(({ data, selected }) => (
       alt={data.login}
       style={{
         width: 32, height: 32, borderRadius: '50%',
-        border: '1.5px solid rgba(255,154,60,0.45)',
+        border: '1.5px solid rgba(201,139,43,0.45)',
         flexShrink: 0, objectFit: 'cover',
       }}
       onError={e => { e.target.src = `https://ui-avatars.com/api/?name=${data.login}&background=1a1a2e&color=ff9a3c&size=32`; }}
@@ -351,7 +351,7 @@ export const ContributorNode = memo(({ data, selected }) => (
       }}>
         @{data.login}
       </div>
-      <div style={{ fontSize: 10, color: 'rgba(255,154,60,0.8)', fontWeight: 500 }}>
+      <div style={{ fontSize: 10, color: 'rgba(201,139,43,0.8)', fontWeight: 500 }}>
         {data.contributions} commits
       </div>
     </div>
@@ -361,12 +361,3 @@ export const ContributorNode = memo(({ data, selected }) => (
 ));
 ContributorNode.displayName = 'ContributorNode';
 
-// ── Node type map for React Flow ──────────────────────────────────────────────
-export const NODE_TYPES = {
-  repoRoot:    RepoRootNode,
-  directory:   DirectoryNode,
-  file:        FileNode,
-  language:    LanguageNode,
-  pattern:     PatternNode,
-  contributor: ContributorNode,
-};

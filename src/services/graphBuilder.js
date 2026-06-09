@@ -108,25 +108,25 @@ const LAYER_DEPENDS_ON = {
 
 // ── File role colors for graph nodes ─────────────────────────────────────────
 export const ROLE_COLORS = {
-  component: '#7c6fff',
-  service:   '#3b82f6',
-  hook:      '#22d3ee',
-  model:     '#ff9a3c',
-  utility:   '#00ffa3',
-  test:      '#ff5078',
+  component: '#F4C542',
+  service:   '#D4A514',
+  hook:      '#C9A94A',
+  model:     '#C98B2B',
+  utility:   '#8EA06D',
+  test:      '#B85C5C',
   config:    '#8b8ca8',
-  index:     '#a855f7',
-  style:     '#ec4899',
+  index:     '#C9A94A',
+  style:     '#C98B2B',
   doc:       '#6b7280',
-  state:     '#f59e0b',
+  state:     '#D4A514',
   file:      '#6b7280',
 };
 
 // ── Risk level colors ─────────────────────────────────────────────────────────
 export const RISK_COLORS = {
-  HIGH:    '#ff5078',
-  MEDIUM:  '#ff9a3c',
-  LOW:     '#00ffa3',
+  HIGH:    '#B85C5C',
+  MEDIUM:  '#C98B2B',
+  LOW:     '#8EA06D',
   UNKNOWN: '#4a4b65',
 };
 
@@ -282,7 +282,6 @@ function scoreFileImportance(blob) {
 
 function inferDependencies(files) {
   const result = [];
-  const filePathSet = new Set(files.map(f => f.path));
 
   files.forEach(file => {
     const role  = getFileRole(file.path);
@@ -363,7 +362,7 @@ function inferDependencies(files) {
           sourcePath: file.path,
           targetPath: target.path,
           type: 'depends-on',
-          color: 'rgba(59,130,246,0.35)',
+          color: 'rgba(244,197,66,0.35)',
           animated: false,
         });
         targetsAdded++;
@@ -494,7 +493,7 @@ export function computeImpactAnalysis(selectedNodeId, nodes, edges) {
     couplingScore >= 30 ? 'Moderately Coupled' :
     'Loosely Coupled';
 
-  const impactPrediction = generateImpactPrediction(selectedNode, dependents, dependencies);
+  const impactPrediction = generateImpactPrediction(selectedNode, dependents);
 
   return {
     node:         selectedNode,
@@ -508,7 +507,7 @@ export function computeImpactAnalysis(selectedNodeId, nodes, edges) {
   };
 }
 
-function generateImpactPrediction(node, dependents, dependencies) {
+function generateImpactPrediction(node, dependents) {
   const path     = node.data.path || '';
   const fname    = getFileName(path) || node.data.label || 'this file';
   const role     = node.data.role || node.type;
@@ -566,17 +565,28 @@ function computeLayout(nodes) {
   const contribNodes = nodes.filter(n => n.type === 'contributor');
   const fileNodes    = nodes.filter(n => n.type === 'file');
 
+  const directorySpacingX = 180;
+  const directorySpacingY = 150;
+  const languageSpacingX = 180;
+  const languageSpacingY = 118;
+  const patternSpacingX = 180;
+  const patternSpacingY = 118;
+  const contributorSpacingX = 180;
+
   // Root at center
   const rootNode = nodes.find(n => n.id === 'root');
   if (rootNode) rootNode.position = { x: 0, y: 0 };
 
-  // Directories: alternating left/right columns
+  // Directories: compact left-side lattice
   dirNodes.forEach((node, i) => {
-    const side = i % 2 === 0 ? -1 : 1;
-    const row  = Math.floor(i / 2);
-    const totalRows = Math.ceil(dirNodes.length / 2);
-    const offsetY   = (row - (totalRows - 1) / 2) * 160;
-    node.position = { x: side * 430, y: offsetY };
+    const cols = 2;
+    const col = i % cols;
+    const row = Math.floor(i / cols);
+    const totalRows = Math.ceil(dirNodes.length / cols);
+    node.position = {
+      x: -300 + col * directorySpacingX,
+      y: (row - (totalRows - 1) / 2) * directorySpacingY,
+    };
   });
 
   // Files: cluster tightly around parent directory (hidden by default)
@@ -592,12 +602,12 @@ function computeLayout(nodes) {
     const px = parentNode?.position?.x || 0;
     const py = parentNode?.position?.y || 0;
     const cols = 3;
-    children.forEach((n, i) => {
-      const col = i % cols;
-      const row = Math.floor(i / cols);
+    children.forEach((n, index) => {
+      const col = index % cols;
+      const row = Math.floor(index / cols);
       n.position = {
-        x: px + (col - 1) * 150,
-        y: py + (parentId === 'root' ? 220 : 140) + row * 90,
+        x: px + (col - 1) * 120,
+        y: py + (parentId === 'root' ? 180 : 120) + row * 82,
       };
     });
   });
@@ -606,8 +616,8 @@ function computeLayout(nodes) {
   langNodes.forEach((n, i) => {
     const cols = 2;
     n.position = {
-      x: 680 + (i % cols) * 180,
-      y: -380 + Math.floor(i / cols) * 130,
+      x: 280 + (i % cols) * languageSpacingX,
+      y: -240 + Math.floor(i / cols) * languageSpacingY,
     };
   });
 
@@ -615,17 +625,17 @@ function computeLayout(nodes) {
   patternNodes.forEach((n, i) => {
     const cols = 2;
     n.position = {
-      x: -720 + (i % cols) * 190,
-      y: -320 + Math.floor(i / cols) * 130,
+      x: -300 + (i % cols) * patternSpacingX,
+      y: -240 + Math.floor(i / cols) * patternSpacingY,
     };
   });
 
   // Contributors: bottom cluster
-  contribNodes.forEach((n, i) => {
+  contribNodes.forEach((n, index) => {
     const total = contribNodes.length;
     n.position = {
-      x: (i - (total - 1) / 2) * 210,
-      y: 460,
+      x: (index - (total - 1) / 2) * contributorSpacingX,
+      y: 320,
     };
   });
 }
@@ -819,7 +829,7 @@ export function buildGraphData(rawData) {
   }
 
   // ── Language nodes ────────────────────────────────────────────────────────
-  techStack.slice(0, 7).forEach((lang, i) => {
+  techStack.slice(0, 7).forEach((lang) => {
     const id = `lang-${lang.name.replace(/[^a-zA-Z0-9]/g, '')}`;
     nodes.push({
       id,
@@ -828,7 +838,7 @@ export function buildGraphData(rawData) {
       data: {
         name:       lang.name,
         percentage: lang.pct,
-        color:      lang.color || '#7c6fff',
+        color:      lang.color || '#F4C542',
         category:   lang.category || 'Language',
         bytes:      lang.bytes,
       },
@@ -839,17 +849,17 @@ export function buildGraphData(rawData) {
       target: id,
       type:   'straight',
       data:   { edgeType: 'uses-language' },
-      style:  { stroke: (lang.color || '#7c6fff') + '55', strokeWidth: 2, strokeDasharray: '6 4' },
+      style:  { stroke: (lang.color || '#F4C542') + '55', strokeWidth: 2, strokeDasharray: '6 4' },
     });
   });
 
   // ── Pattern nodes ─────────────────────────────────────────────────────────
   const PATTERNS = [
-    { key: 'hasCI',      label: 'CI/CD Pipeline', icon: '⚙️',  color: '#7c6fff' },
+    { key: 'hasCI',      label: 'CI/CD Pipeline', icon: '⚙️',  color: '#F4C542' },
     { key: 'hasTests',   label: 'Test Suite',      icon: '🧪',  color: '#00ffa3' },
-    { key: 'hasDocker',  label: 'Docker',          icon: '🐳',  color: '#3b82f6' },
-    { key: 'hasDocs',    label: 'Documentation',   icon: '📚',  color: '#22d3ee' },
-    { key: 'isMonorepo', label: 'Monorepo',        icon: '📦',  color: '#ff9a3c' },
+    { key: 'hasDocker',  label: 'Docker',          icon: '🐳',  color: '#D4A514' },
+    { key: 'hasDocs',    label: 'Documentation',   icon: '📚',  color: '#C9A94A' },
+    { key: 'isMonorepo', label: 'Monorepo',        icon: '📦',  color: '#C98B2B' },
   ];
 
   PATTERNS.filter(p => architecture[p.key]).forEach(pattern => {
@@ -874,7 +884,7 @@ export function buildGraphData(rawData) {
   contributorList
     .filter(c => c.login)
     .slice(0, 5)
-    .forEach((contrib, i) => {
+    .forEach((contrib) => {
       const id = `contrib-${contrib.login}`;
       nodes.push({
         id,
@@ -892,8 +902,8 @@ export function buildGraphData(rawData) {
         target: 'root',
         type:   'straight',
         data:   { edgeType: 'contributed-to' },
-        style:  { stroke: 'rgba(255,154,60,0.3)', strokeWidth: 1, strokeDasharray: '4 4' },
-        markerEnd: { type: 'arrowclosed', width: 10, height: 10, color: 'rgba(255,154,60,0.4)' },
+        style:  { stroke: 'rgba(201,139,43,0.3)', strokeWidth: 1, strokeDasharray: '4 4' },
+        markerEnd: { type: 'arrowclosed', width: 10, height: 10, color: 'rgba(201,139,43,0.4)' },
       });
     });
 

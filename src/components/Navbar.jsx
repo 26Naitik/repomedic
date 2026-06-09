@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Activity, Shield, Zap, GitBranch, Star, Key, X, Lock } from "lucide-react";
+import { theme } from "../theme";
 
 export default function Navbar({ onReset }) {
   const [isTokenModalOpen, setIsTokenModalOpen] = useState(false);
@@ -42,10 +43,10 @@ export default function Navbar({ onReset }) {
           position: "sticky",
           top: 0,
           zIndex: 100,
-          background: "rgba(10, 10, 15, 0.85)",
+          background: "rgba(10, 10, 10, 0.88)",
           backdropFilter: "blur(24px)",
           WebkitBackdropFilter: "blur(24px)",
-          borderBottom: "1px solid rgba(255,255,255,0.06)",
+          borderBottom: `1px solid ${theme.colors.border}`,
         }}
       >
         <div className="container" style={{ height: 64, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -57,9 +58,9 @@ export default function Navbar({ onReset }) {
             <div style={{
               width: 36, height: 36,
               borderRadius: 10,
-              background: "linear-gradient(135deg, #7c6fff 0%, #3b82f6 50%, #22d3ee 100%)",
+              background: theme.gradients.primary,
               display: "flex", alignItems: "center", justifyContent: "center",
-              boxShadow: "0 0 16px rgba(124, 111, 255, 0.5)",
+              boxShadow: "0 10px 20px rgba(0, 0, 0, 0.28)",
             }}>
               <Activity size={18} color="#fff" strokeWidth={2.5} />
             </div>
@@ -90,8 +91,8 @@ export default function Navbar({ onReset }) {
               style={{
                 fontSize: 13,
                 padding: "7px 12px",
-                borderColor: localStorage.getItem("repomedic_pat") ? "rgba(0,255,163,0.3)" : "var(--border)",
-                background: localStorage.getItem("repomedic_pat") ? "rgba(0,255,163,0.04)" : "var(--bg-glass)",
+                borderColor: localStorage.getItem("repomedic_pat") ? "rgba(142,160,109,0.3)" : "var(--border)",
+                background: localStorage.getItem("repomedic_pat") ? "rgba(142,160,109,0.05)" : "var(--bg-glass)",
                 color: localStorage.getItem("repomedic_pat") ? "var(--neon-green)" : "var(--text-secondary)",
               }}
               title="GitHub API Authentication Settings"
@@ -141,7 +142,7 @@ export default function Navbar({ onReset }) {
                 background: "var(--bg-surface)",
                 border: "1px solid var(--border)",
                 borderRadius: "20px",
-                boxShadow: "var(--shadow-glow)",
+                boxShadow: "var(--shadow-card)",
                 padding: 28,
                 position: "relative",
               }}
@@ -169,7 +170,7 @@ export default function Navbar({ onReset }) {
                     width: 40,
                     height: 40,
                     borderRadius: 12,
-                    background: "rgba(124, 111, 255, 0.15)",
+                      background: "rgba(244,197,66,0.12)",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",

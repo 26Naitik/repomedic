@@ -3,37 +3,37 @@ import { AlertTriangle, RefreshCw, Wifi, Lock, Search, Server } from "lucide-rea
 
 const ERROR_CONFIG = {
   not_found: {
-    icon: <Search size={36} color="#ff9a3c" />,
+    icon: <Search size={36} color="#C98B2B" />,
     color: "var(--neon-orange)",
     title: "Repository Not Found",
     hint: "Make sure the repository exists and is public. Private repos require authentication (coming soon).",
   },
   rate_limit: {
-    icon: <Lock size={36} color="#ff5078" />,
+    icon: <Lock size={36} color="#B85C5C" />,
     color: "var(--neon-red)",
     title: "API Rate Limit Reached",
     hint: "GitHub allows 60 unauthenticated requests per hour. Wait a minute and try again.",
   },
   invalid_url: {
-    icon: <AlertTriangle size={36} color="#ff9a3c" />,
+    icon: <AlertTriangle size={36} color="#C98B2B" />,
     color: "var(--neon-orange)",
     title: "Invalid GitHub URL",
     hint: 'The URL must point to a GitHub repository. Example: https://github.com/facebook/react',
   },
   offline: {
-    icon: <Wifi size={36} color="#ff5078" />,
+    icon: <Wifi size={36} color="#B85C5C" />,
     color: "var(--neon-red)",
     title: "No Internet Connection",
     hint: "Check your network connection and try again.",
   },
   server_error: {
-    icon: <Server size={36} color="#ff5078" />,
+    icon: <Server size={36} color="#B85C5C" />,
     color: "var(--neon-red)",
     title: "GitHub Server Error",
     hint: "GitHub's API is having issues. Try again in a few moments.",
   },
   unknown: {
-    icon: <AlertTriangle size={36} color="#ff9a3c" />,
+    icon: <AlertTriangle size={36} color="#C98B2B" />,
     color: "var(--neon-orange)",
     title: "Something Went Wrong",
     hint: "An unexpected error occurred. Check the console for details.",
@@ -67,9 +67,9 @@ export default function ErrorScreen({ error, onReset, lastUrl }) {
               width: "100%",
               maxWidth: 150,
               height: "auto",
-              filter: "drop-shadow(0 0 24px rgba(255, 80, 120, 0.2))",
+              filter: "drop-shadow(0 10px 20px rgba(0, 0, 0, 0.34))",
               borderRadius: 16,
-              border: "1px solid rgba(255, 80, 120, 0.15)",
+              border: "1px solid rgba(244,197,66,0.12)",
             }}
           />
         </motion.div>
@@ -91,8 +91,8 @@ export default function ErrorScreen({ error, onReset, lastUrl }) {
           <div style={{
             fontFamily: "var(--font-mono)", fontSize: 12,
             color: "var(--text-muted)",
-            background: "rgba(255,255,255,0.04)",
-            border: "1px solid rgba(255,255,255,0.08)",
+            background: "rgba(255,255,255,0.03)",
+            border: "1px solid rgba(244,197,66,0.12)",
             borderRadius: 8, padding: "8px 16px", marginBottom: 28,
             display: "inline-block", wordBreak: "break-all",
           }}>

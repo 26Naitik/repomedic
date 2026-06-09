@@ -136,7 +136,7 @@ export default function SmartSuggestions({ suggestions }) {
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
           <div style={{
             width: 32, height: 32, borderRadius: 8,
-            background: "rgba(124,111,255,0.15)",
+            background: "rgba(244,197,66,0.12)",
             display: "flex", alignItems: "center", justifyContent: "center",
           }}>
             <Sparkles size={16} color="var(--neon-purple)" />
@@ -154,7 +154,7 @@ export default function SmartSuggestions({ suggestions }) {
               style={{
                 padding: "5px 14px", borderRadius: 100, border: "none", cursor: "pointer",
                 fontSize: 12, fontWeight: 600,
-                background: filter === p ? "rgba(124,111,255,0.25)" : "transparent",
+                background: filter === p ? "rgba(244,197,66,0.14)" : "transparent",
                 color: filter === p ? "var(--neon-purple)" : "var(--text-muted)",
                 transition: "all 0.2s",
               }}

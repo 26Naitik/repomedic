@@ -34,7 +34,7 @@ export default function HeroSection({ onAnalyze }) {
       {/* Background grid */}
       <div style={{
         position: "absolute", inset: 0, zIndex: 0,
-        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.04) 1px, transparent 0)`,
+        backgroundImage: `radial-gradient(circle at 1px 1px, rgba(255,255,255,0.03) 1px, transparent 0)`,
         backgroundSize: "40px 40px",
       }} />
 
@@ -44,7 +44,7 @@ export default function HeroSection({ onAnalyze }) {
         top: "50%", left: "50%",
         transform: "translate(-50%, -60%)",
         width: 700, height: 500,
-        background: "radial-gradient(ellipse, rgba(124,111,255,0.12) 0%, transparent 70%)",
+        background: "radial-gradient(ellipse, rgba(244,197,66,0.08) 0%, transparent 72%)",
         zIndex: 0, pointerEvents: "none",
       }} />
 
@@ -97,9 +97,9 @@ export default function HeroSection({ onAnalyze }) {
             <div style={{
               display: "flex", gap: 12, alignItems: "stretch",
               background: "rgba(255,255,255,0.03)",
-              border: `1px solid ${error ? "rgba(255,80,120,0.5)" : "rgba(255,255,255,0.1)"}`,
+              border: `1px solid ${error ? "rgba(184,92,92,0.42)" : "rgba(244,197,66,0.14)"}`,
               borderRadius: 16, padding: 8,
-              boxShadow: error ? "0 0 0 3px rgba(255,80,120,0.1)" : "0 0 0 1px rgba(124,111,255,0.08), 0 20px 60px rgba(0,0,0,0.4)",
+              boxShadow: error ? "0 0 0 3px rgba(184,92,92,0.1)" : "0 18px 40px rgba(0,0,0,0.32)",
               transition: "all 0.3s",
             }}>
               <div style={{ display: "flex", alignItems: "center", gap: 10, flex: 1, paddingLeft: 12 }}>
@@ -189,9 +189,9 @@ export default function HeroSection({ onAnalyze }) {
               width: "100%",
               maxWidth: 200,
               height: "auto",
-              filter: "drop-shadow(0 0 32px rgba(124,111,255,0.25))",
+                filter: "drop-shadow(0 10px 22px rgba(0,0,0,0.35))",
               borderRadius: 20,
-              border: "1px solid rgba(255, 255, 255, 0.08)",
+                border: "1px solid rgba(244,197,66,0.12)",
             }}
           />
         </motion.div>

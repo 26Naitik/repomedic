@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { Activity, CheckCircle2, Loader2 } from "lucide-react";
+import { theme } from "../theme";
 
 const STEPS = [
   { id: 1, label: "Connecting to GitHub API…"           },
@@ -35,17 +36,17 @@ export default function LoadingScreen({ repoUrl, currentStep = 0 }) {
           transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
           style={{
             width: 80, height: 80, borderRadius: 24,
-            background: "linear-gradient(135deg, #7c6fff 0%, #3b82f6 50%, #22d3ee 100%)",
+            background: theme.gradients.primary,
             display: "flex", alignItems: "center", justifyContent: "center",
             margin: "0 auto 32px",
-            boxShadow: "0 0 40px rgba(124,111,255,0.5)",
+            boxShadow: "0 16px 28px rgba(0,0,0,0.34)",
             position: "relative",
           }}
         >
           <Activity size={36} color="#fff" strokeWidth={2} />
           {[0, 1].map(i => (
             <motion.div key={i}
-              style={{ position: "absolute", inset: -4, borderRadius: "50%", border: "2px solid rgba(124,111,255,0.4)" }}
+              style={{ position: "absolute", inset: -4, borderRadius: "50%", border: "2px solid rgba(244,197,66,0.18)" }}
               animate={{ scale: [1, 2.3], opacity: [0.6, 0] }}
               transition={{ duration: 2, repeat: Infinity, delay: i * 1, ease: "easeOut" }}
             />
@@ -146,8 +147,8 @@ export default function LoadingScreen({ repoUrl, currentStep = 0 }) {
           transition={{ delay: 1 }}
           style={{
             marginTop: 36, padding: "12px 16px",
-            background: "rgba(124,111,255,0.06)",
-            border: "1px solid rgba(124,111,255,0.15)",
+            background: "rgba(244,197,66,0.05)",
+            border: "1px solid rgba(244,197,66,0.12)",
             borderRadius: 12, fontSize: 13, color: "var(--text-secondary)",
           }}
         >
